@@ -10,13 +10,15 @@ public class PlayerMusicController : MonoBehaviour
     public string currentBeatAction = "none";
     private bool isPlaying = false;
     private int currentActionIndex = 0;
+    public MakeCircleAction MakeCircleAction;
 
     private IEnumerator Instrumental()
     {
         /* The loop that is activated when the instrumental is playing */
         while (true)
         {
-            beatActions[currentActionIndex].Execute();
+            // beatActions[currentActionIndex].Execute();
+            yield return StartCoroutine(beatActions[currentActionIndex].Execute(this));
             currentActionIndex = (currentActionIndex + 1) % beatsPerCycle;
             Debug.Log($"currentActionIndex: {currentActionIndex}");
             yield return new WaitForSeconds(1f);
@@ -42,12 +44,14 @@ public class PlayerMusicController : MonoBehaviour
     {
         for (int i = 0; i < beatsPerCycle; i++)
         {
-            beatActions.Add(new NullAction());
+            beatActions.Add(ScriptableObject.CreateInstance<NullAction>());
         }
 
-        beatActions[5] = new TestPrintAction();
-        beatActions[10] = new TestPrintAction();
-        beatActions[15] = new TestPrintAction();
+        beatActions[5] = MakeCircleAction;
+        beatActions[10] = MakeCircleAction;
+        beatActions[15] = MakeCircleAction;
+        // beatActions[10] = ScriptableObject.CreateInstance<TestPrintAction>();
+        // beatActions[15] = ScriptableObject.CreateInstance<TestPrintAction>();
 
         StartInstrumental();
     }

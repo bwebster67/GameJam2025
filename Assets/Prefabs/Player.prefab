@@ -142,3 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02a0db73a69e5cd48a2284c25250f3d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  beatsPerCycle: 16
+  beatActions: []
+  currentBeatAction: none
+  MakeCircleAction: {fileID: 11400000, guid: 21f5b2f0f942e6546919cf976f6cef58, type: 2}
