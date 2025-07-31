@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
+<<<<<<< HEAD
   tags: []
+=======
+  tags:
+  - Enemy
+>>>>>>> origin/ben
   layers:
   - Default
   - TransparentFX
@@ -21,8 +26,8 @@ TagManager:
   - 
   - 
   - 
-  - Effects
-  - UI
+  - 
+  - 
   - 
   - 
   - 
@@ -41,6 +46,7 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+<<<<<<< HEAD
   - name: Ground
     uniqueID: 3967331453
     locked: 0
@@ -56,5 +62,7 @@ TagManager:
   - name: New Layer 5
     uniqueID: 1626856963
     locked: 0
+=======
+>>>>>>> origin/ben
   m_RenderingLayers:
   - Default
