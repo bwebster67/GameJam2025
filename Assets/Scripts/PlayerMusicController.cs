@@ -6,95 +6,26 @@ using UnityEngine.Rendering;
 
 public class PlayerMusicController : MonoBehaviour
 {
-    // [Header("Timing Settings")]
-    // public int beatsPerCycle = 20;
-    // public double bpm = 120;
-    // private double nextBeatTime;
-    // public AudioSource audioSource;
-    // public List<MusicAction> beatActions = new List<MusicAction>();
-    // public string currentBeatAction = "none";
-    // private bool isPlaying = false;
-    // private int currentActionIndex = 0;
-    // public MakeCircleAction MakeCircleAction;
-
-    // private IEnumerator Instrumental()
-    // {
-    //     /* The loop that is activated when the instrumental is playing */
-    //     while (true)
-    //     {
-    //         // beatActions[currentActionIndex].Execute();
-    //         yield return StartCoroutine(beatActions[currentActionIndex].Execute(this));
-    //         currentActionIndex = (currentActionIndex + 1) % beatsPerCycle;
-    //         Debug.Log($"currentActionIndex: {currentActionIndex}");
-    //         yield return new WaitForSeconds(1f);
-    //     }
-    // }
-
-    // void StartInstrumental()
-    // {
-    //     Debug.Log("Starting Instrumental");
-    //     isPlaying = true;
-    //     StartCoroutine(Instrumental());
-    // }
-
-    // void ScheduleNextSound()
-    // {
-    //     // schedule the click sound on the DSP clock
-    //     audioSource.PlayScheduled(nextBeatTime);
-
-    //     // queue up your game-logic callback exactly at that DSP time
-    //     StartCoroutine(InvokeOnBeat(nextBeatTime));
-
-    //     // compute and schedule the following click
-    //     nextBeatTime += (60.0 / bpm);
-    //     Invoke(nameof(ScheduleNextSound), (float)((60.0 / bpm) - 0.01));
-    //     // small lead-in so it queues before reaching dspTime
-    // }
-
-    // private IEnumerator InvokeOnBeat(double dspBeatTime)
-    // {
-    //     // wait until the DSP clock reaches the beat
-    //     while (AudioSettings.dspTime < dspBeatTime)
-    //         yield return null;
-    //     // DO your action on-beat:
-    // }
-
-    // void Start()
-    // {
-    //     for (int i = 0; i < beatsPerCycle; i++)
-    //     {
-    //         beatActions.Add(ScriptableObject.CreateInstance<NullAction>());
-    //     }
-
-    //     beatActions[5] = MakeCircleAction;
-    //     beatActions[10] = MakeCircleAction;
-    //     beatActions[15] = MakeCircleAction;
-
-    //     // schedule the first sound one beat from now
-    //     nextBeatTime = AudioSettings.dspTime + (60.0 / bpm);
-    //     ScheduleNextSound(); /* uses nextBeatTime */
-
-    //     StartInstrumental();
-    // }
 
     [Header("Timing Settings")]
     public int beatsPerCycle = 16;
     public double bpm = 120;
 
     [Header("Audio")]
-    [Tooltip("A template AudioSource. We'll reuse it to schedule any action's clip.")]
     public AudioSource audioTemplate;
 
-    public List<MusicAction> beatActions = new List<MusicAction>();
+    public List<MusicAction> beatActions;
 
     private double secondsPerBeat;
     private double nextBeatDspTime;
     private int currentBeatIndex = -1;
+    public List<MusicAction> allMusicActions; 
     public MakeCircleAction MakeCircleAction;
     public NullAction NullAction;
 
     private void Start()
     {
+        beatActions = new List<MusicAction>();
         secondsPerBeat = 60.0 / bpm;
 
         // ensure list is long enough
@@ -111,7 +42,10 @@ public class PlayerMusicController : MonoBehaviour
         // ScheduleNextBeat();
         StartCoroutine(BeatLoop());
     }
-
+    public void ChangeToCircleAttack(int index)
+    {
+        beatActions[index] = MakeCircleAction;
+    }
     private IEnumerator BeatLoop()
     {
         while (true)
