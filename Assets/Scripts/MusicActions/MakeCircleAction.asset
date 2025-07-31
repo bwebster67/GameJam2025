@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4f9827d4e3dbb040a46d79ab5278dd2, type: 3}
   m_Name: MakeCircleAction
   m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: d865fd8655f7a7240b1e68816b184a70, type: 3}
   prefab: {fileID: 84071555995982518, guid: ba222c4dd0f980246a3228f94fd8e7be, type: 3}
-  rotation: {x: 0, y: 0, z: 0, w: 0}
+  rotation: {x: 0, y: 0, z: 0, w: 1}
+  damage: 10

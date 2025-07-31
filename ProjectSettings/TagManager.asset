@@ -2,17 +2,22 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
+  serializedVersion: 3
+<<<<<<< HEAD
   tags: []
+=======
+  tags:
+  - Enemy
+>>>>>>> origin/ben
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
-  - 
-  - 
+  - CameraTargetLayer
+  - Player
   - 
   - 
   - 
@@ -41,3 +46,23 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+<<<<<<< HEAD
+  - name: Ground
+    uniqueID: 3967331453
+    locked: 0
+  - name: Player
+    uniqueID: 3265291757
+    locked: 0
+  - name: Grass
+    uniqueID: 3843172053
+    locked: 0
+  - name: New Layer 4
+    uniqueID: 131512873
+    locked: 0
+  - name: New Layer 5
+    uniqueID: 1626856963
+    locked: 0
+=======
+>>>>>>> origin/ben
+  m_RenderingLayers:
+  - Default

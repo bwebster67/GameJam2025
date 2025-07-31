@@ -3,11 +3,12 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem.Interactions;
 
+[CreateAssetMenu(menuName = "MusicActions/MakeNullAction")]
 public class NullAction : MusicAction 
 {
     public override IEnumerator Execute(MonoBehaviour runner)
     {
-        Debug.Log("null action");
+        // Debug.Log("null action");
         yield break;
     }
 }

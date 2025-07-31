@@ -10,13 +10,21 @@ public class MakeCircleAction : MusicAction
     public GameObject prefab;
     public Quaternion rotation = Quaternion.identity;
 
+    public float damage;
+
     public override IEnumerator Execute(MonoBehaviour runner)
     {
-        Debug.Log("MakeCircleAction");
+        // Debug.Log("MakeCircleAction");
         Transform parent = runner.transform;
 
         Vector3 spawnPos = parent != null ? parent.position : runner.transform.position;
-        UnityEngine.Object.Instantiate(prefab, spawnPos, rotation);
+        GameObject circle = UnityEngine.Object.Instantiate(prefab, spawnPos, rotation);
+
+        if (circle.TryGetComponent<CircleProjectile>(out var circleProjectile))
+        {
+            circleProjectile.damage = damage;
+        }
+
         yield break;
     }
 }
