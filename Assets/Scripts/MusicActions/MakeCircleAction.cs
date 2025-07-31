@@ -8,7 +8,7 @@ using UnityEngine.InputSystem.Interactions;
 public class MakeCircleAction : MusicAction 
 {
     public GameObject prefab;
-    public Quaternion rotation = Quaternion.identity;
+    public Quaternion rotation = new Quaternion(0f,0f,0f,-30f);
 
     public float damage;
 

@@ -3,12 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-<<<<<<< HEAD
-  tags: []
-=======
   tags:
   - Enemy
->>>>>>> origin/ben
   layers:
   - Default
   - TransparentFX
@@ -16,7 +12,8 @@ TagManager:
   - Ground
   - Water
   - UI
-  - CameraTargetLayer
+  - 
+  - Enemy
   - Player
   - 
   - 
@@ -25,8 +22,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - Attacks
   - 
   - 
   - 
@@ -46,23 +42,20 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-<<<<<<< HEAD
   - name: Ground
-    uniqueID: 3967331453
+    uniqueID: 1188522953
     locked: 0
   - name: Player
-    uniqueID: 3265291757
+    uniqueID: 549331871
     locked: 0
-  - name: Grass
-    uniqueID: 3843172053
+  - name: New Layer 3
+    uniqueID: 4126299181
     locked: 0
-  - name: New Layer 4
-    uniqueID: 131512873
+  - name: Fog
+    uniqueID: 391159691
     locked: 0
-  - name: New Layer 5
-    uniqueID: 1626856963
+  - name: Attack
+    uniqueID: 1388070945
     locked: 0
-=======
->>>>>>> origin/ben
   m_RenderingLayers:
   - Default
