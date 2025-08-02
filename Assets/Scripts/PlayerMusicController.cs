@@ -22,15 +22,21 @@ public class PlayerMusicController : MonoBehaviour
     private double secondsPerBeat;
     private double nextBeatDspTime;
     public int currentBeatIndex = 0;
-    public List<MusicAction> allMusicActions; 
+    public List<MusicAction> allMusicActions;
+
+    [Header("Music Actions")]
     public MakeCircleAction MakeCircleAction;
     public SnareAction SnareAction;
+    public MakeFireBallAction MakeFireBallAction;
+    public MakeVortexAction MakeVortexAction;
+    public MakeFireSpinAction MakeFireSpinAction;
     public NullAction NullAction;
     public UIManagerScript uiMngr;
     public UnityEvent NewBeat;
     public UnityEvent<int> NewNoteAdded;
     public GameObject NoteBarGO;
     private NoteBar noteBar;
+    
     public int playerExperience = 0;
     private void Awake()
     {
@@ -54,6 +60,14 @@ public class PlayerMusicController : MonoBehaviour
         // temp add snare actions
         for (int i = 4; i < beatsPerCycle; i += 7)
             AddNote(SnareAction, i);
+        // temp add fireball actions
+        for (int i = 1; i < beatsPerCycle; i += 11)
+            AddNote(MakeFireBallAction, i);
+        for (int i = 0; i < beatsPerCycle; i += 11)
+            AddNote(MakeFireSpinAction, i);
+        //Vortex
+        for (int i = 0; i < beatsPerCycle; i += 1)
+            AddNote(MakeVortexAction, i);
 
         StartMusic();
     }

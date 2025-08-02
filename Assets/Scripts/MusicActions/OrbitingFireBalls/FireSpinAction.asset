@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8196e22eb62f3f740b1001e51690914b, type: 3}
+  m_Name: FireSpinAction
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: c83a316af57c57d4091bf57b17df13d6, type: 3}
+  actionIcon: {fileID: 4868110299486283018, guid: f435acd4891f77a4aba991c4226db760, type: 3}
+  fireSpin: {fileID: 3041046977048896827, guid: 56c6e1422d7e50c4bb0a8eed2ce1ec55, type: 3}
+  rotation: {x: 0, y: 0, z: 0, w: -30}
+  damage: 10

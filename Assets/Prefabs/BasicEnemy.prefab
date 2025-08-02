@@ -82,7 +82,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.4292453, g: 0.28751335, b: 0.4286876, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -118,6 +118,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyStats: {fileID: 11400000, guid: 40b73604286dc3c40a0cb4e2ac78bf2c, type: 2}
   DamageNumberPopup: {fileID: 1660527236172109413, guid: 109a17af7f8c8bb49b1471aba91ae4f4, type: 3}
+  particlePool: {fileID: 5678958115186642862, guid: e9a770b85b6c9124b99fba21b230e98e, type: 3}
+  enemyDeath: {fileID: 8497309535764028813, guid: fe2e9ad3cbf6cf84aa490ca85b8cccc1, type: 3}
 --- !u!50 &8427992186605044509
 Rigidbody2D:
   serializedVersion: 5

@@ -4,20 +4,26 @@ using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, IPoolable
 {
 
     public EnemyStats enemyStats;
     private float maxHealth;
     private float currentHealth;
-    private float moveSpeed; 
+    private float moveSpeed;
+    
+    
 
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
     public GameObject DamageNumberPopup;
      private CinemachineImpulseSource impulseSource;
+
+    public ParticleSystemPool particlePool;
+    [SerializeField] private ParticleSystem enemyDeath;
     void Start()
     {
+        
         spriteRenderer = GetComponent<SpriteRenderer>();
         if (enemyStats.sprite != null)
         {
@@ -28,7 +34,7 @@ public class Enemy : MonoBehaviour
         maxHealth = currentHealth = enemyStats.maxHealth;
         moveSpeed = enemyStats.moveSpeed;
 
-        // TakeDamage(10);
+        
     }
 
     public void TakeDamage(float damage)
@@ -37,14 +43,19 @@ public class Enemy : MonoBehaviour
         damagePopup.transform.GetChild(0).GetComponent<TextMesh>().text = $"{damage}"; 
         currentHealth -= damage;
         Debug.Log("Enemy health: " + currentHealth);
-
+        if (gameObject.activeInHierarchy)
+        {
+            StartCoroutine(FlashOnHit());
+        }
 
         // play screen shake
-        impulseSource.GenerateImpulse(.1f); // can overload with float force. 1 is normal
+        impulseSource.GenerateImpulse(.12f); // can overload with float force. 1 is normal
         if (currentHealth <= 0)
         {
-            impulseSource.GenerateImpulse(.2f);
-            Destroy(gameObject);
+           
+
+            Die();
+           
         }
     }
 
@@ -61,12 +72,69 @@ public class Enemy : MonoBehaviour
             Debug.LogWarning("No impulse source found on enemy.");
         }
     }
-    // IEnumerator FlashOnHit()
-    // {
-    //     yield return new WaitForSeconds(0.05f);
-    //     spriteRenderer.color = Color.white;
-    //     yield return new WaitForSeconds(0.05f);
-    //     spriteRenderer.color = originalColor;
-    // }
+    IEnumerator FlashOnHit()
+    {
+       
+        yield return new WaitForSeconds(0.05f);
+        spriteRenderer.color = Color.white;
+        yield return new WaitForSeconds(0.05f);
+        spriteRenderer.color = originalColor;
+    }
+    public void OnSpawnFromPool()
+    {
+        // This is called every time the enemy is re-used
+        currentHealth = maxHealth; 
+        Debug.Log("Enemy reset");
+    }
+
+    private void Die()
+    {
+        /// Particle Stuff--------
+        ParticleSystem ps = particlePool.Get();
+        ps.transform.position = transform.position;
+        ps.Play();
+        StartCoroutine(HandleDeathWithParticle(ps, ps.main.duration));
+
+        ///---------------------------------
+
+
+        impulseSource.GenerateImpulse(.24f);
+        Transform psTrans = enemyDeath.transform;    ///spawn death particles
+        Transform enemyTrans = gameObject.transform;
+        psTrans.position = enemyTrans.position;
+        enemyDeath.Play();
+
+        gameObject.SetActive(false);
+    }
+    private IEnumerator HandleDeathWithParticle(ParticleSystem ps, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+       
+        particlePool.Return(ps);
+
+        // THEN deactivate the enemy
+        gameObject.SetActive(false); 
+    }
+    //////////////////////////////
+
+    // Pooling Particles
+
+    private IEnumerator ReturnParticleAfterDelay(ParticleSystem ps, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        particlePool.Return(ps);
+    }
+
+    //////////////////////
+    ///
+    /// To make Object pooling more efficient, we need to disable costly features on enemies when they're disabled.
+    ///
+    //////////////////////
+
+    private void OnDisable()
+    {
+        
+    }
 
 }

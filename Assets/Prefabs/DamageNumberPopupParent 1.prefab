@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8699335951928958305}
   - component: {fileID: 4754602946687090943}
-  m_Layer: 5
+  m_Layer: 26
   m_Name: DamageNumberPopupParent 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 9128349694111260497}
   - component: {fileID: 6369692153116289734}
   - component: {fileID: 3728480521398638672}
-  m_Layer: 5
+  m_Layer: 26
   m_Name: DamageNumberPopup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
