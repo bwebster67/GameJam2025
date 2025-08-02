@@ -24,13 +24,14 @@ public class PlayerMusicController : MonoBehaviour
     public int currentBeatIndex = 0;
     public List<MusicAction> allMusicActions; 
     public MakeCircleAction MakeCircleAction;
-    public NullAction NullAction;
     public SnareAction SnareAction;
+    public NullAction NullAction;
     public UIManagerScript uiMngr;
     public UnityEvent NewBeat;
     public UnityEvent<int> NewNoteAdded;
     public GameObject NoteBarGO;
     private NoteBar noteBar;
+    public int playerExperience = 0;
     private void Awake()
     {
         if (NewBeat == null)      NewBeat = new UnityEvent();
@@ -50,6 +51,9 @@ public class PlayerMusicController : MonoBehaviour
         // temp add red circle actions
         for (int i = 6; i < beatsPerCycle; i += 7)
             AddNote(MakeCircleAction, i);
+        // temp add snare actions
+        for (int i = 4; i < beatsPerCycle; i += 7)
+            AddNote(SnareAction, i);
 
         StartMusic();
     }

@@ -32,9 +32,9 @@ public class UIManagerScript : MonoBehaviour
 
 
     // TEST STUFF   
-    public void DropdownChanged()
+    public void OnButtonClicked()
     {
-        Debug.Log($"Dropdown Changed to {dropdown.value}!");
+        Debug.Log($"Updating note slot at index {dropdown.value}!");
         PlayerMusicController playerMusicController = Player.GetComponent<PlayerMusicController>();
         playerMusicController.ChangeToCircleAttack(dropdown.value);
     }
