@@ -252,3 +252,4 @@ MonoBehaviour:
   lifespan: 3
   bulletSpeed: 8.5
   screenShake: {fileID: 0}
+  explosion: {fileID: 3102431085485593966, guid: 5cd7416e6ce976b4fab1428daa0ec2e3, type: 3}

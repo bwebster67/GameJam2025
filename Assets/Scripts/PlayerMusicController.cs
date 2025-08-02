@@ -28,6 +28,7 @@ public class PlayerMusicController : MonoBehaviour
     public MakeCircleAction MakeCircleAction;
     public SnareAction SnareAction;
     public MakeFireBallAction MakeFireBallAction;
+    public MakeVortexAction MakeVortexAction;
     public MakeFireSpinAction MakeFireSpinAction;
     public NullAction NullAction;
     public UIManagerScript uiMngr;
@@ -64,6 +65,9 @@ public class PlayerMusicController : MonoBehaviour
             AddNote(MakeFireBallAction, i);
         for (int i = 0; i < beatsPerCycle; i += 11)
             AddNote(MakeFireSpinAction, i);
+        //Vortex
+        for (int i = 0; i < beatsPerCycle; i += 11)
+            AddNote(MakeVortexAction, i);
 
         StartMusic();
     }

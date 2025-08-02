@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8196e22eb62f3f740b1001e51690914b, type: 3}
   m_Name: FireSpinAction
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 16da9fbbf274dd44d85c647c77f6e7fc, type: 3}
+  clip: {fileID: 8300000, guid: c83a316af57c57d4091bf57b17df13d6, type: 3}
   actionIcon: {fileID: 4868110299486283018, guid: f435acd4891f77a4aba991c4226db760, type: 3}
   fireSpin: {fileID: 3041046977048896827, guid: 56c6e1422d7e50c4bb0a8eed2ce1ec55, type: 3}
   rotation: {x: 0, y: 0, z: 0, w: -30}

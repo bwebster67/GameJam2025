@@ -6,6 +6,7 @@ public class FireBall : ProjectileTemp
 
     [SerializeField] private float bulletSpeed = 10f;
     [SerializeField] ScreenShake screenShake;
+    [SerializeField] private GameObject explosion;
 
     private Vector2 direction;
 
@@ -33,7 +34,10 @@ public class FireBall : ProjectileTemp
         {
             Debug.Log("fireball hit enemy");
             DamageEnemy(collider);
+            Vector2 position2D = transform.position;  //translates vector2d to position
+            Instantiate(explosion, (Vector3)position2D, Quaternion.identity);
             Destroy(gameObject);
+
           
         }
     }

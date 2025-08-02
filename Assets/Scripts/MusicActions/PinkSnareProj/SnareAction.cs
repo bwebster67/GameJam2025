@@ -18,6 +18,7 @@ public class SnareAction : MusicAction
 
         Vector2 randomDirection = Random.insideUnitCircle.normalized;
         Vector2 randomDirection2 = Random.insideUnitCircle.normalized;
+        Vector2 randomDirection3 = Random.insideUnitCircle.normalized;
 
         // First projectile towards target (or fallback)
         GameObject snare1 = Object.Instantiate(snareProjPrefab, playerPos, Quaternion.identity);
@@ -34,13 +35,21 @@ public class SnareAction : MusicAction
             snareProj2.damage = damage;
             snareProj2.Fire(randomDirection);
         }
-        // Second projectile towards random direction
+        // Third projectile towards random direction
         GameObject snare3 = Object.Instantiate(snareProjPrefab, playerPos, Quaternion.identity);
         if (snare3.TryGetComponent<SnareProj>(out var snareProj3))
         {
             snareProj3.damage = damage;
             snareProj3.Fire(randomDirection2);
         }
+        // Third projectile towards random direction
+        GameObject snare4 = Object.Instantiate(snareProjPrefab, playerPos, Quaternion.identity);
+        if (snare4.TryGetComponent<SnareProj>(out var snareProj4))
+        {
+            snareProj4.damage = damage;
+            snareProj4.Fire(randomDirection3);
+        }
+
 
         yield break;
     }
