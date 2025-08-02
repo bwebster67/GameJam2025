@@ -1,21 +1,58 @@
 using System.Collections;
 using UnityEngine;
 
-
 [CreateAssetMenu(menuName = "MusicActions/SnareAction")]
-public abstract class SnareAction : ScriptableObject
+public class SnareAction : MusicAction
 {
-    public AudioClip clip;
+    [SerializeField] private GameObject snareProjPrefab;
+    [SerializeField] private float damage = 7.5f;
 
-    public virtual void ScheduleSound(AudioSource templateSource, double dspTime)
+    public override IEnumerator Execute(MonoBehaviour runner)
     {
-        if (clip == null || templateSource == null)
-            return;
+        Vector2 playerPos = runner.transform.position;
 
-        templateSource.clip = clip;
-        templateSource.PlayScheduled(dspTime);
+        Transform target = FindNearestEnemy(playerPos);
+        Vector2 targetDirection = target != null
+            ? ((Vector2)target.position - playerPos).normalized
+            : Random.insideUnitCircle.normalized;
+
+        Vector2 randomDirection = Random.insideUnitCircle.normalized;
+
+        // First projectile towards target (or fallback)
+        GameObject snare1 = Object.Instantiate(snareProjPrefab, playerPos, Quaternion.identity);
+        if (snare1.TryGetComponent<SnareProj>(out var snareProj1))
+        {
+            snareProj1.damage = damage;
+            snareProj1.Fire(targetDirection);
+        }
+
+        // Second projectile towards random direction
+        GameObject snare2 = Object.Instantiate(snareProjPrefab, playerPos, Quaternion.identity);
+        if (snare2.TryGetComponent<SnareProj>(out var snareProj2))
+        {
+            snareProj2.damage = damage;
+            snareProj2.Fire(randomDirection);
+        }
+
+        yield break;
     }
 
-    /* function that executes the action */
-    public abstract IEnumerator Execute(MonoBehaviour runner);
+    private Transform FindNearestEnemy(Vector2 origin)
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        Transform nearest = null;
+        float minDistSqr = Mathf.Infinity;
+
+        foreach (GameObject enemy in enemies)
+        {
+            float distSqr = ((Vector2)enemy.transform.position - origin).sqrMagnitude;
+            if (distSqr < minDistSqr)
+            {
+                minDistSqr = distSqr;
+                nearest = enemy.transform;
+            }
+        }
+
+        return nearest;
+    }
 }

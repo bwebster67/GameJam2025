@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
+using UnityEditor.Experimental.GraphView;
 using UnityEditor.Timeline;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -92,6 +94,8 @@ public class PlayerMusicController : MonoBehaviour
     private int currentBeatIndex = -1;
     public MakeCircleAction MakeCircleAction;
     public NullAction NullAction;
+    public SnareAction SnareAction;
+    public UIManagerScript uiMngr;
 
     private void Start()
     {
@@ -104,6 +108,10 @@ public class PlayerMusicController : MonoBehaviour
         // example: every 7th
         for (int i = 6; i < beatsPerCycle; i += 7)
             beatActions[i] = MakeCircleAction;
+        
+        // snare shot
+        for (int i = 4; i < beatsPerCycle; i += 5)
+            beatActions[i] = SnareAction;
 
         double now = AudioSettings.dspTime;
         nextBeatDspTime = AudioSettings.dspTime + secondsPerBeat;
@@ -190,6 +198,10 @@ public class PlayerMusicController : MonoBehaviour
         };
         _audioPool.Add(newPs);
         return dup;
+    }
+    public void changeMusicVolume(float volume) /// 0-1
+    {
+        audioTemplate.volume = volume;
     }
 
 }

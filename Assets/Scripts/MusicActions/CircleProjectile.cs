@@ -1,21 +1,22 @@
 using UnityEngine;
 
-public class CircleProjectile : MonoBehaviour
+public class CircleProjectile : ProjectileTemp
 {
-    public float damage;
-    public float lifespan = 3f; /* projectile lifespan in seconds */
+    
+     /* projectile lifespan in seconds */
 
     void Start()
     {
         Destroy(gameObject, lifespan);
     }
 
-    void DamageEnemy(Collider2D collider)
+    protected override void DamageEnemy(Collider2D collider)
     {
-        if (collider.gameObject.TryGetComponent<Enemy>(out var enemy))
-        {
-            enemy.TakeDamage(damage);
-        }
+        base.DamageEnemy(collider); 
+
+       
+
+        Debug.Log("CircleProjectile hit something");
     }
 
     void OnTriggerEnter2D(Collider2D collider)
@@ -23,7 +24,7 @@ public class CircleProjectile : MonoBehaviour
         Debug.Log("Collided");
         if (collider.gameObject.CompareTag("Enemy"))
         {
-            DamageEnemy(collider); 
+            DamageEnemy(collider);
         }
     }
 

@@ -84,5 +84,10 @@ public class PlayerHealthController : MonoBehaviour
         {
             TakeDamage(7.5f);
         }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+        
+        }
     }
+    
 }

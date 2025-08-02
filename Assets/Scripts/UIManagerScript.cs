@@ -12,9 +12,7 @@ public class UIManagerScript : MonoBehaviour
     /// Reference to other scripts
     [SerializeField] PlayerHealthController playerHP;
     [SerializeField] private SoundFXManager soundMngr;
-    
-    
-   
+    [SerializeField] private PlayerMusicController playerMusic;
   
 
     //////////////////////    FUNCTIONS ////////////////////////////
@@ -37,18 +35,23 @@ public class UIManagerScript : MonoBehaviour
         if (pauseMenu.activeSelf != true)
         {
             bool pause = true;
+            soundMngr.changeVolume(.5f); //// if we add a volume setting we will need to store volume and minus it 
+            playerMusic.changeMusicVolume(.5f);
             pauseMenu.SetActive(true);
 
             Time.timeScale = 0;
-            soundMngr.changeVolume(.5f);     //// if we add a volume setting we will need to store volume and minus it 
+            soundMngr.changeVolume(.5f); //// if we add a volume setting we will need to store volume and minus it 
+            playerMusic.changeMusicVolume(.5f);
            
         }
         else
         {
             bool pause = false;
+            soundMngr.changeVolume(1f);
+            playerMusic.changeMusicVolume(1f);
             pauseMenu.SetActive(false);
             Time.timeScale = 1;
-            soundMngr.changeVolume(1f);
+           
         }
     }
 

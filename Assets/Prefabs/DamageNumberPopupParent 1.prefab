@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8699335951928958305}
   - component: {fileID: 4754602946687090943}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: DamageNumberPopupParent 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,8 @@ GameObject:
   - component: {fileID: 3557581555061054810}
   - component: {fileID: 9128349694111260497}
   - component: {fileID: 6369692153116289734}
-  m_Layer: 0
+  - component: {fileID: 3728480521398638672}
+  m_Layer: 5
   m_Name: DamageNumberPopup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +100,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 74a5091d8707f334b9a5c31ef71a64ba, type: 3}
@@ -168,3 +169,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3728480521398638672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4665793948803144163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d93f8a214593b58449c44c98c30c8615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

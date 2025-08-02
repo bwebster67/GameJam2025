@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class MusicAction : ScriptableObject
 {
     public AudioClip clip;
+    
 
     public virtual void ScheduleSound(AudioSource templateSource, double dspTime)
     {
