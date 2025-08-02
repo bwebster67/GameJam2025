@@ -12,7 +12,6 @@ public class NoteBar : MonoBehaviour
     void Awake()
     {
         playerMusicController = Player.GetComponent<PlayerMusicController>();
-        // playerMusicController.NewBeat.AddListener(BumpNote);
         playerMusicController.NewNoteAdded.AddListener(UpdateNodeIcon);
     }
     void Start()

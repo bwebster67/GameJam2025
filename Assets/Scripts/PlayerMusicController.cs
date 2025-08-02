@@ -96,18 +96,7 @@ public class PlayerMusicController : MonoBehaviour
                 src.SetScheduledEndTime(nextBeatDspTime + clipLen + 0.05);
             }
 
-            // int safety_debug = 0;
-            // while (AudioSettings.dspTime < nextBeatDspTime)
-            // {
-            //     // safety_debug++;
-            //     // if (safety_debug > 1000)
-            //     // {
-            //     //     break;
-            //     // } 
-            // }
-            // I think the drift happens here
             yield return new WaitUntil(() => AudioSettings.dspTime >= nextBeatDspTime);
-            // NewBeat.Invoke();
 
             double drift = AudioSettings.dspTime - nextBeatDspTime;
             Debug.Log($"Drift on beat {upcomingIndex}: {drift*1000:F1} ms");
@@ -115,7 +104,7 @@ public class PlayerMusicController : MonoBehaviour
             currentBeatIndex = upcomingIndex;
             yield return StartCoroutine(upcoming.Execute(this));
 
-            // 5) advance to next beat
+            // advance to next beat
             nextBeatDspTime += secondsPerBeat;
 
         }
