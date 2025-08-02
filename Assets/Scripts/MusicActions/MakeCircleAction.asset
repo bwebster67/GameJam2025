@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: MakeCircleAction
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: d865fd8655f7a7240b1e68816b184a70, type: 3}
+  actionIcon: {fileID: -8345480992124639657, guid: f45b259b74ab4424f8b9aeb9ce8e5bcc, type: 3}
   prefab: {fileID: 84071555995982518, guid: ba222c4dd0f980246a3228f94fd8e7be, type: 3}
   rotation: {x: 0, y: 0, z: 0, w: 1}
   damage: 10

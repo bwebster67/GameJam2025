@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e61faba2fa67e634e840838d9de9169e
+guid: d2225c2945402864a9c50f2cb2769a9a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -487493296738412268
-    second: 404-4042739_pause-button-clipart-transparent-pause-button-clipart-transparent_0
+      213: -2626620616151949781
+    second: GandalfHardcore 32x32 Projectiles5_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 404-4042739_pause-button-clipart-transparent-pause-button-clipart-transparent_0
+      name: GandalfHardcore 32x32 Projectiles5_0
       rect:
         serializedVersion: 2
-        x: 152
-        y: 6
-        width: 533
-        height: 586
+        x: 0
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 5, y: 0, z: 0, w: 19}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 419d581fd631c39f0800000000000000
-      internalID: -487493296738412268
+      spriteID: b2e9b8e477e5c8bd0800000000000000
+      internalID: -2626620616151949781
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: f975b35641fcf3a409fc142375141058
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      404-4042739_pause-button-clipart-transparent-pause-button-clipart-transparent_0: -487493296738412268
+      GandalfHardcore 32x32 Projectiles5_0: -2626620616151949781
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

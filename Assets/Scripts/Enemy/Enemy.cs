@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,7 +15,7 @@ public class Enemy : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
     public GameObject DamageNumberPopup;
-
+     private CinemachineImpulseSource impulseSource;
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -36,9 +37,13 @@ public class Enemy : MonoBehaviour
         damagePopup.transform.GetChild(0).GetComponent<TextMesh>().text = $"{damage}"; 
         currentHealth -= damage;
         Debug.Log("Enemy health: " + currentHealth);
-        
+
+
+        // play screen shake
+        impulseSource.GenerateImpulse(.1f); // can overload with float force. 1 is normal
         if (currentHealth <= 0)
         {
+            impulseSource.GenerateImpulse(.2f);
             Destroy(gameObject);
         }
     }
@@ -48,7 +53,14 @@ public class Enemy : MonoBehaviour
         Debug.Log("Enemy Collided.");
         // TakeDamage(10);
     }
-
+    private void Awake()
+    {
+        impulseSource = GetComponent<CinemachineImpulseSource>();
+        if (impulseSource == null)
+        {
+            Debug.LogWarning("No impulse source found on enemy.");
+        }
+    }
     // IEnumerator FlashOnHit()
     // {
     //     yield return new WaitForSeconds(0.05f);

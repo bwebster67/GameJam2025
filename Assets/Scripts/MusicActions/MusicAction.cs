@@ -1,10 +1,12 @@
 using System.Collections;
+using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
 
 /* base template class for a music action */
 public abstract class MusicAction : ScriptableObject
 {
     public AudioClip clip;
+    public Sprite actionIcon;
 
     public virtual void ScheduleSound(AudioSource templateSource, double dspTime)
     {

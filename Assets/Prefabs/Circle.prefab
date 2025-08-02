@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 4839574872130523000}
   - component: {fileID: 4929925498784413196}
   - component: {fileID: 4126146563746315609}
-  m_Layer: 16
+  m_Layer: 3
   m_Name: Circle
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 1142547243300199912}
   - component: {fileID: 7155138112481220130}
   - component: {fileID: 9216011723399292444}
-  m_Layer: 16
+  m_Layer: 3
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
