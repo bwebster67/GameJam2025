@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ba9e1dfc0279ca4abe363d8d9222b88, type: 3}
+  m_Name: MakeFireBallAction
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: d865fd8655f7a7240b1e68816b184a70, type: 3}
+  actionIcon: {fileID: -3901134388601381244, guid: 6f581d36558771d4da5013f99bc2ab91, type: 3}
+  fireball: {fileID: 8158937197174102301, guid: 4007479c10e221b43b2a6f0509e4093f, type: 3}
+  damage: 20

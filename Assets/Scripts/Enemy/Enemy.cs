@@ -28,7 +28,7 @@ public class Enemy : MonoBehaviour
         maxHealth = currentHealth = enemyStats.maxHealth;
         moveSpeed = enemyStats.moveSpeed;
 
-        // TakeDamage(10);
+        
     }
 
     public void TakeDamage(float damage)
@@ -37,13 +37,13 @@ public class Enemy : MonoBehaviour
         damagePopup.transform.GetChild(0).GetComponent<TextMesh>().text = $"{damage}"; 
         currentHealth -= damage;
         Debug.Log("Enemy health: " + currentHealth);
-
+        StartCoroutine("FlashOnHit");
 
         // play screen shake
-        impulseSource.GenerateImpulse(.1f); // can overload with float force. 1 is normal
+        impulseSource.GenerateImpulse(.12f); // can overload with float force. 1 is normal
         if (currentHealth <= 0)
         {
-            impulseSource.GenerateImpulse(.2f);
+            impulseSource.GenerateImpulse(.24f);
             Destroy(gameObject);
         }
     }
@@ -61,12 +61,12 @@ public class Enemy : MonoBehaviour
             Debug.LogWarning("No impulse source found on enemy.");
         }
     }
-    // IEnumerator FlashOnHit()
-    // {
-    //     yield return new WaitForSeconds(0.05f);
-    //     spriteRenderer.color = Color.white;
-    //     yield return new WaitForSeconds(0.05f);
-    //     spriteRenderer.color = originalColor;
-    // }
+    IEnumerator FlashOnHit()
+    {
+        yield return new WaitForSeconds(0.05f);
+        spriteRenderer.color = Color.white;
+        yield return new WaitForSeconds(0.05f);
+        spriteRenderer.color = originalColor;
+    }
 
 }
