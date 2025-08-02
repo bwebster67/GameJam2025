@@ -1,18 +1,43 @@
 using UnityEngine;
 using Unity.UI;
 using UnityEngine.Android;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
+using TMPro;
 
 public class UIManagerScript : MonoBehaviour
 {
     /// Our Different Menus
     public GameObject respawnMenu;
     public GameObject pauseMenu;
+    public GameObject dropdownMenu;
+    public TMP_Dropdown dropdown;
+
+
+    [SerializeField] PlayerHealthController playerHP;
+    [SerializeField] GameObject Player;
+    [SerializeField] private SoundFXManager soundMngr;
+    [SerializeField] private PlayerMusicController playerMusic;
+  
+
+    public int selectedNumber = 0;
+
+    void Start()
+    {
+        dropdown = dropdownMenu.GetComponent<TMP_Dropdown>();
+    }
 
 
     /// Reference to other scripts
-    [SerializeField] PlayerHealthController playerHP;
-    [SerializeField] private SoundFXManager soundMngr;
-    [SerializeField] private PlayerMusicController playerMusic;
+
+
+    // TEST STUFF   
+    public void DropdownChanged()
+    {
+        Debug.Log($"Dropdown Changed to {dropdown.value}!");
+        PlayerMusicController playerMusicController = Player.GetComponent<PlayerMusicController>();
+        playerMusicController.ChangeToCircleAttack(dropdown.value);
+    }
   
 
     //////////////////////    FUNCTIONS ////////////////////////////
