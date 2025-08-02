@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Timeline;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Rendering;
 
 public class PlayerMusicController : MonoBehaviour
@@ -18,38 +19,57 @@ public class PlayerMusicController : MonoBehaviour
 
     private double secondsPerBeat;
     private double nextBeatDspTime;
-    private int currentBeatIndex = -1;
+    public int currentBeatIndex = 0;
     public List<MusicAction> allMusicActions; 
     public MakeCircleAction MakeCircleAction;
     public NullAction NullAction;
+    public UnityEvent NewBeat;
+    public UnityEvent<int> NewNoteAdded;
+    public GameObject NoteBarGO;
+    private NoteBar noteBar;
+    private void Awake()
+    {
+        if (NewBeat == null)      NewBeat = new UnityEvent();
+        if (NewNoteAdded == null) NewNoteAdded = new UnityEvent<int>();
+    }
 
     private void Start()
     {
         beatActions = new List<MusicAction>();
+        noteBar = NoteBarGO.GetComponent<NoteBar>();
         secondsPerBeat = 60.0 / bpm;
 
-        // ensure list is long enough
+        // Fill list with NullAction
         while (beatActions.Count < beatsPerCycle)
             beatActions.Add(NullAction);
 
-        // example: every 7th
+        // temp add red circle actions
         for (int i = 6; i < beatsPerCycle; i += 7)
-            beatActions[i] = MakeCircleAction;
+            AddNote(MakeCircleAction, i);
 
+        StartMusic();
+    }
+    public void StartMusic()
+    {
         double now = AudioSettings.dspTime;
-        nextBeatDspTime = AudioSettings.dspTime + secondsPerBeat;
         nextBeatDspTime = Mathf.Ceil((float)(now / secondsPerBeat)) * secondsPerBeat;
-        // ScheduleNextBeat();
+
         StartCoroutine(BeatLoop());
+    }
+    public void AddNote(MusicAction action, int index)
+    {
+        beatActions[index] = action;
+        NewNoteAdded.Invoke(index);
     }
     public void ChangeToCircleAttack(int index)
     {
-        beatActions[index] = MakeCircleAction;
+        AddNote(MakeCircleAction, index);
     }
     private IEnumerator BeatLoop()
     {
         while (true)
         {
+            NewBeat.Invoke();
             // a) Pick the upcoming action index
             int upcomingIndex = (currentBeatIndex + 1) % beatsPerCycle;
             MusicAction upcoming = beatActions[upcomingIndex];
@@ -76,10 +96,22 @@ public class PlayerMusicController : MonoBehaviour
                 src.SetScheduledEndTime(nextBeatDspTime + clipLen + 0.05);
             }
 
+            // int safety_debug = 0;
+            // while (AudioSettings.dspTime < nextBeatDspTime)
+            // {
+            //     // safety_debug++;
+            //     // if (safety_debug > 1000)
+            //     // {
+            //     //     break;
+            //     // } 
+            // }
+            // I think the drift happens here
             yield return new WaitUntil(() => AudioSettings.dspTime >= nextBeatDspTime);
+            // NewBeat.Invoke();
 
             double drift = AudioSettings.dspTime - nextBeatDspTime;
             Debug.Log($"Drift on beat {upcomingIndex}: {drift*1000:F1} ms");
+            noteBar.BumpNote(upcomingIndex);
             currentBeatIndex = upcomingIndex;
             yield return StartCoroutine(upcoming.Execute(this));
 
@@ -89,17 +121,11 @@ public class PlayerMusicController : MonoBehaviour
         }
     }
 
-    private void DebugDrift(double scheduledDspTime)
-    {
-        double now = AudioSettings.dspTime;
-        double drift = now - scheduledDspTime;
-        Debug.Log($"Drift: {drift * 1000:F2} ms");
-    }
 
     class PooledSource
     {
         public AudioSource src;
-        public double nextFreeDspTime; 
+        public double nextFreeDspTime;
     }
 
     private List<PooledSource> _audioPool = new List<PooledSource>();
