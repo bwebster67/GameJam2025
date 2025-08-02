@@ -292,11 +292,25 @@ MonoBehaviour:
   bpm: 120
   audioTemplate: {fileID: 8003627698319828146, guid: 3a87ce70a600f3643aac15ee802125b6, type: 3}
   beatActions: []
+  currentBeatIndex: 0
   allMusicActions:
   - {fileID: 11400000, guid: d9de19758b679a641b5e76862cfefd34, type: 2}
   - {fileID: 11400000, guid: 1550962c35462244c82f23684aeda6a4, type: 2}
   MakeCircleAction: {fileID: 11400000, guid: d9de19758b679a641b5e76862cfefd34, type: 2}
+  SnareAction: {fileID: 0}
   NullAction: {fileID: 11400000, guid: 1550962c35462244c82f23684aeda6a4, type: 2}
+  NewBeat:
+    m_PersistentCalls:
+      m_Calls: []
+  NewNoteAdded:
+    m_PersistentCalls:
+      m_Calls: []
+  NoteBarGO: {fileID: 0}
+  DragDropPrefab: {fileID: 7532915573044508317, guid: 3a5b7db3f8d16df4d8d5c424a2ad0a4c, type: 3}
+  canvas: {fileID: 0}
+  playerExperience: 0
+  levelUpThreshold: 7
+  uiMngr: {fileID: 0}
 --- !u!61 &5484862038837316699
 BoxCollider2D:
   m_ObjectHideFlags: 0

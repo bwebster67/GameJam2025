@@ -9,13 +9,32 @@ public class NoteBar : MonoBehaviour
     public List<Note> Notes;
     public GameObject Player;
     private PlayerMusicController playerMusicController;
+    Animator animator;
     void Awake()
     {
+        animator = GetComponent<Animator>();
         playerMusicController = Player.GetComponent<PlayerMusicController>();
-        playerMusicController.NewNoteAdded.AddListener(UpdateNodeIcon);
+        // playerMusicController.NewNoteAdded.AddListener(UpdateNodeIcon);
     }
-    void Start()
+    private void OnEnable()
     {
+        PlayerMusicController.LevelUpEvent += HandleLevelUp;
+        LevelUpUI.OnFinishLevelUpSequence += HandleFinishLevelUp;
+    }
+
+    private void OnDisable()
+    {
+        PlayerMusicController.LevelUpEvent += HandleLevelUp;
+        LevelUpUI.OnFinishLevelUpSequence -= HandleFinishLevelUp;
+    }
+    public void HandleLevelUp()
+    {
+        animator.SetTrigger("Grow");
+    }
+    public void HandleFinishLevelUp()
+    {
+        animator.ResetTrigger("Grow");
+        animator.SetTrigger("Shrink");
     }
     void UpdateNodeIcon(int index)
     {

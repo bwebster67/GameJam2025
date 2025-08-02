@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -22,26 +23,42 @@ public class PlayerMusicController : MonoBehaviour
     private double secondsPerBeat;
     private double nextBeatDspTime;
     public int currentBeatIndex = 0;
+
+    // Music Actions
     public List<MusicAction> allMusicActions;
     public MakeCircleAction MakeCircleAction;
     public SnareAction SnareAction;
     public NullAction NullAction;
-    public UIManagerScript uiMngr;
+
+    // Events
     public UnityEvent NewBeat;
     public UnityEvent<int> NewNoteAdded;
+    public static event Action LevelUpEvent;
+
     public GameObject NoteBarGO;
     private NoteBar noteBar;
+    public GameObject DragDropPrefab;
+    public GameObject canvas;
+
+    // Experience
     public float playerExperience = 0f;
     public float levelUpThreshold = 7;
 
+    public UIManagerScript uiMngr;
     private void OnEnable()
     {
         Enemy.OnEnemyDied += HandleEnemyDeath;
+        UIManagerScript.OnPauseEvent += StopMusic;
+        UIManagerScript.OnUnPauseEvent += StartMusic;
+        Note.OnNoteDropped += AddDroppedNode;
     }
 
     private void OnDisable()
     {
         Enemy.OnEnemyDied -= HandleEnemyDeath;
+        UIManagerScript.OnPauseEvent -= StopMusic;
+        UIManagerScript.OnUnPauseEvent -= StartMusic;
+        Note.OnNoteDropped -= AddDroppedNode;
     }
 
     private void Awake()
@@ -58,14 +75,18 @@ public class PlayerMusicController : MonoBehaviour
 
         // Fill list with NullAction
         while (beatActions.Count < beatsPerCycle)
-            beatActions.Add(NullAction);
+            beatActions.Add(null);
+
+        for (int i = 0; i < beatActions.Count; i++) {
+            AddNonDroppedNode(i, NullAction);
+        }
 
         // temp add red circle actions
         for (int i = 6; i < beatsPerCycle; i += 7)
-            AddNote(MakeCircleAction, i);
+            AddNonDroppedNode(i, MakeCircleAction);
         // temp add snare actions
         for (int i = 4; i < beatsPerCycle; i += 7)
-            AddNote(SnareAction, i);
+            AddNonDroppedNode(i, SnareAction);
 
         StartMusic();
     }
@@ -76,14 +97,42 @@ public class PlayerMusicController : MonoBehaviour
 
         StartCoroutine(BeatLoop());
     }
-    public void AddNote(MusicAction action, int index)
+    public void StopMusic()
+    {
+        StopAllCoroutines();
+    }
+    public void AddNote(int index, MusicAction action)
     {
         beatActions[index] = action;
         NewNoteAdded.Invoke(index);
     }
+    public void AddNonDroppedNode(int index, MusicAction action)
+    {
+        GameObject dragDropGO = Instantiate(DragDropPrefab, canvas.transform);
+        dragDropGO.transform.localScale = new Vector3(0.75f, 0.75f, 0.75f);
+        DragDrop dragDrop = dragDropGO.GetComponent<DragDrop>();
+        dragDrop.canvas = canvas.GetComponent<Canvas>();
+        dragDrop.musicAction = action;
+        UnityEngine.UI.Image dragDropPrefabImage = dragDropGO.GetComponent<UnityEngine.UI.Image>();
+        dragDropPrefabImage.sprite = action.actionIcon;
+        RectTransform rect = dragDropGO.GetComponent<RectTransform>();
+        if (rect != null)
+        {
+            rect.anchoredPosition = Vector2.zero; // Center in parent canvas
+        } 
+
+        dragDropGO.transform.SetParent(noteBar.Notes[index].transform);
+        dragDropGO.transform.position = noteBar.Notes[index].transform.position + new Vector3(0, 3, 0);
+        
+        AddNote(index, action);
+    }
+    public void AddDroppedNode(int index, MusicAction action)
+    {
+        AddNote(index, action);
+    }
     public void ChangeToCircleAttack(int index)
     {
-        AddNote(MakeCircleAction, index);
+        AddNote(index, MakeCircleAction);
     }
     private IEnumerator BeatLoop()
     {
@@ -93,7 +142,7 @@ public class PlayerMusicController : MonoBehaviour
             // a) Pick the upcoming action index
             int upcomingIndex = (currentBeatIndex + 1) % beatsPerCycle;
             MusicAction upcoming = beatActions[upcomingIndex];
-            var clip = upcoming.clip;
+            var clip = upcoming?.clip;
             double clipLen = clip?.length ?? 0;
 
             // get and reserve audio source
@@ -185,7 +234,7 @@ public class PlayerMusicController : MonoBehaviour
     }
     public void LevelUp()
     {
-        // use this as a static event that LevelUpUI can listen for 
+        LevelUpEvent.Invoke();
     }
 
 }
