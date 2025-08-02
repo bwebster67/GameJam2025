@@ -66,7 +66,7 @@ public class PlayerMusicController : MonoBehaviour
         for (int i = 0; i < beatsPerCycle; i += 11)
             AddNote(MakeFireSpinAction, i);
         //Vortex
-        for (int i = 0; i < beatsPerCycle; i += 11)
+        for (int i = 0; i < beatsPerCycle; i += 1)
             AddNote(MakeVortexAction, i);
 
         StartMusic();

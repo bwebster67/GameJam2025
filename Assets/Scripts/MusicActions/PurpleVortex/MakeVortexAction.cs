@@ -7,21 +7,36 @@ public class MakeVortexAction : MusicAction
 {
     public GameObject vortexPrefab;
     public Vortex Vortex;
+    private int vortexRange = 4;
 
     public float damage;
 
-   public override IEnumerator Execute(MonoBehaviour runner)
+    public override IEnumerator Execute(MonoBehaviour runner)
     {
         Vector2 playerPos = runner.transform.position;
-
         Transform target = FindNearestEnemy(playerPos);
-   
-        // First projectile towards target (or fallback)
-        
-        if (Vortex.TryGetComponent<Vortex>(out var vortexProj))
+
+        Vector2 spawnPos;
+        if (target != null)
+        {
+            Vector2 targetPos = target.position;
+            Vector2 dir = (targetPos - playerPos).normalized;
+            float distance = Vector2.Distance(playerPos, targetPos);
+
+            if (distance <= vortexRange)
+                spawnPos = targetPos;
+            else
+                spawnPos = playerPos + dir * vortexRange;
+        }
+        else
+        {
+            spawnPos = playerPos; // fallback if no enemies
+        }
+
+        GameObject vortex = Object.Instantiate(vortexPrefab, spawnPos, Quaternion.identity);
+        if (vortex.TryGetComponent<Vortex>(out var vortexProj))
         {
             vortexProj.damage = damage;
-            vortexProj.FireVortex(target);
         }
 
         yield break;

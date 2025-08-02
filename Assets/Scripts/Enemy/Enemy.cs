@@ -93,7 +93,8 @@ public class Enemy : MonoBehaviour, IPoolable
         ParticleSystem ps = particlePool.Get();
         ps.transform.position = transform.position;
         ps.Play();
-        StartCoroutine(ReturnParticleAfterDelay(ps, ps.main.duration));
+        StartCoroutine(HandleDeathWithParticle(ps, ps.main.duration));
+
         ///---------------------------------
 
 
@@ -104,6 +105,16 @@ public class Enemy : MonoBehaviour, IPoolable
         enemyDeath.Play();
 
         gameObject.SetActive(false);
+    }
+    private IEnumerator HandleDeathWithParticle(ParticleSystem ps, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+       
+        particlePool.Return(ps);
+
+        // THEN deactivate the enemy
+        gameObject.SetActive(false); 
     }
     //////////////////////////////
 
