@@ -29,9 +29,9 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
     public void Update()
     {
-        if (musicAction is not NullAction)
+        if (musicAction is NullAction)
         {
-            disabled = false;
+            disabled = true;
         }
     }
 
@@ -48,13 +48,17 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
     public void OnDrag(PointerEventData eventData)
     {
-        rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+        if (disabled == false)
+            rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        canvasGroup.alpha = 1f;
-        canvasGroup.blocksRaycasts = true;
+        if (disabled == false)
+        {
+            canvasGroup.alpha = 1f;
+            canvasGroup.blocksRaycasts = true;
+        }
     }
 
     public void OnPointerDown(PointerEventData eventData)
