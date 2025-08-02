@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Cinemachine;
@@ -10,12 +11,15 @@ public class Enemy : MonoBehaviour
     public EnemyStats enemyStats;
     private float maxHealth;
     private float currentHealth;
-    private float moveSpeed; 
+    private float moveSpeed;
+    public float expValue; 
 
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
     public GameObject DamageNumberPopup;
-     private CinemachineImpulseSource impulseSource;
+    private CinemachineImpulseSource impulseSource;
+    public static event Action<Enemy> OnEnemyDied;
+
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -27,8 +31,8 @@ public class Enemy : MonoBehaviour
 
         maxHealth = currentHealth = enemyStats.maxHealth;
         moveSpeed = enemyStats.moveSpeed;
+        expValue = enemyStats.ExpValue; 
 
-        // TakeDamage(10);
     }
 
     public void TakeDamage(float damage)
@@ -43,9 +47,16 @@ public class Enemy : MonoBehaviour
         impulseSource.GenerateImpulse(.1f); // can overload with float force. 1 is normal
         if (currentHealth <= 0)
         {
-            impulseSource.GenerateImpulse(.2f);
-            Destroy(gameObject);
+            Die();
         }
+    }
+    public void Die()
+    {
+        impulseSource.GenerateImpulse(.2f);
+        OnEnemyDied?.Invoke(this);
+
+        Destroy(gameObject);
+
     }
 
     void OnCollisionEnter2D(Collision2D collision)

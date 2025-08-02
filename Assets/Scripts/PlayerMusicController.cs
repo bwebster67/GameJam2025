@@ -22,7 +22,7 @@ public class PlayerMusicController : MonoBehaviour
     private double secondsPerBeat;
     private double nextBeatDspTime;
     public int currentBeatIndex = 0;
-    public List<MusicAction> allMusicActions; 
+    public List<MusicAction> allMusicActions;
     public MakeCircleAction MakeCircleAction;
     public SnareAction SnareAction;
     public NullAction NullAction;
@@ -31,10 +31,22 @@ public class PlayerMusicController : MonoBehaviour
     public UnityEvent<int> NewNoteAdded;
     public GameObject NoteBarGO;
     private NoteBar noteBar;
-    public int playerExperience = 0;
+    public float playerExperience = 0f;
+    public float levelUpThreshold = 7;
+
+    private void OnEnable()
+    {
+        Enemy.OnEnemyDied += HandleEnemyDeath;
+    }
+
+    private void OnDisable()
+    {
+        Enemy.OnEnemyDied -= HandleEnemyDeath;
+    }
+
     private void Awake()
     {
-        if (NewBeat == null)      NewBeat = new UnityEvent();
+        if (NewBeat == null) NewBeat = new UnityEvent();
         if (NewNoteAdded == null) NewNoteAdded = new UnityEvent<int>();
     }
 
@@ -104,11 +116,12 @@ public class PlayerMusicController : MonoBehaviour
                 src.SetScheduledEndTime(nextBeatDspTime + clipLen + 0.05);
             }
 
+            yield return new WaitUntil(() => AudioSettings.dspTime >= nextBeatDspTime - 0.1); // makes animation start 0.1s earlier
+            noteBar.BumpNote(upcomingIndex);
             yield return new WaitUntil(() => AudioSettings.dspTime >= nextBeatDspTime);
 
             double drift = AudioSettings.dspTime - nextBeatDspTime;
-            Debug.Log($"Drift on beat {upcomingIndex}: {drift*1000:F1} ms");
-            noteBar.BumpNote(upcomingIndex);
+            Debug.Log($"Drift on beat {upcomingIndex}: {drift * 1000:F1} ms");
             currentBeatIndex = upcomingIndex;
             yield return StartCoroutine(upcoming.Execute(this));
 
@@ -141,7 +154,8 @@ public class PlayerMusicController : MonoBehaviour
         // 2) Otherwise clone a fresh one
         var dup = Instantiate(audioTemplate, transform);
         dup.playOnAwake = false;
-        var newPs = new PooledSource {
+        var newPs = new PooledSource
+        {
             src = dup,
             nextFreeDspTime = nowDsp  // available immediately
         };
@@ -151,6 +165,27 @@ public class PlayerMusicController : MonoBehaviour
     public void changeMusicVolume(float volume) /// 0-1
     {
         audioTemplate.volume = volume;
+    }
+
+    public void HandleEnemyDeath(Enemy enemy)
+    {
+        GainExp(enemy.expValue);
+    }
+
+    public void GainExp(float exp)
+    {
+        playerExperience += exp;
+        if (playerExperience >= levelUpThreshold)
+        {
+            LevelUp();
+            playerExperience -= levelUpThreshold;
+            levelUpThreshold *= 1.3f;
+            levelUpThreshold += 3;
+        }
+    }
+    public void LevelUp()
+    {
+        // use this as a static event that LevelUpUI can listen for 
     }
 
 }
