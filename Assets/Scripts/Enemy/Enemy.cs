@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,17 +13,18 @@ public class Enemy : MonoBehaviour, IPoolable
     private float maxHealth;
     private float currentHealth;
     private float moveSpeed;
-    public float expValue; 
+    public float expValue;
+
+
+    private Color originalColor = Color.white;
+    public GameObject DamageNumberPopup;
+    public ParticleSystemPool particlePool;
+    [SerializeField] private ParticleSystem enemyDeath;
 
     private SpriteRenderer spriteRenderer;
-    private Color originalColor;
-    public GameObject DamageNumberPopup;
     private CinemachineImpulseSource impulseSource;
     public static event Action<Enemy> OnEnemyDied;
 
-
-    public ParticleSystemPool particlePool;
-    [SerializeField] private ParticleSystem enemyDeath;
     void Start()
     {
         
@@ -31,19 +33,14 @@ public class Enemy : MonoBehaviour, IPoolable
         {
             spriteRenderer.sprite = enemyStats.sprite;
         }
-        originalColor = spriteRenderer.color;
-
         maxHealth = currentHealth = enemyStats.maxHealth;
         moveSpeed = enemyStats.moveSpeed;
-        expValue = enemyStats.ExpValue; 
-
-        
     }
 
     public void TakeDamage(float damage)
     {
         GameObject damagePopup = Instantiate(DamageNumberPopup, transform.position, Quaternion.identity);
-        damagePopup.transform.GetChild(0).GetComponent<TextMesh>().text = $"{damage}"; 
+        damagePopup.transform.GetChild(0).GetComponent<TextMesh>().text = $"{damage}";
         currentHealth -= damage;
         Debug.Log("Enemy health: " + currentHealth);
         if (gameObject.activeInHierarchy)
@@ -57,14 +54,6 @@ public class Enemy : MonoBehaviour, IPoolable
         {
             Die();
         }
-    }
-    public void Die()
-    {
-        impulseSource.GenerateImpulse(.2f);
-        OnEnemyDied?.Invoke(this);
-
-        Destroy(gameObject);
-
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -82,7 +71,6 @@ public class Enemy : MonoBehaviour, IPoolable
     }
     IEnumerator FlashOnHit()
     {
-       
         yield return new WaitForSeconds(0.05f);
         spriteRenderer.color = Color.white;
         yield return new WaitForSeconds(0.05f);
@@ -97,6 +85,7 @@ public class Enemy : MonoBehaviour, IPoolable
 
     private void Die()
     {
+        OnEnemyDied?.Invoke(this);
         /// Particle Stuff--------
         ParticleSystem ps = particlePool.Get();
         ps.transform.position = transform.position;

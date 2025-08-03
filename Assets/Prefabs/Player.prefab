@@ -297,7 +297,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d9de19758b679a641b5e76862cfefd34, type: 2}
   - {fileID: 11400000, guid: 1550962c35462244c82f23684aeda6a4, type: 2}
   MakeCircleAction: {fileID: 11400000, guid: d9de19758b679a641b5e76862cfefd34, type: 2}
-  SnareAction: {fileID: 0}
+  SnareAction: {fileID: 11400000, guid: 967b67467a854fa428e1545063c71846, type: 2}
+  MakeFireBallAction: {fileID: 11400000, guid: f65ecbfc2ce401b45b886af7d7801323, type: 2}
+  MakeVortexAction: {fileID: 11400000, guid: fdcefbb9d08e534479a767d9b2c817ab, type: 2}
+  MakeFireSpinAction: {fileID: 11400000, guid: f09314d1a581789419f98f735efbaa95, type: 2}
   NullAction: {fileID: 11400000, guid: 1550962c35462244c82f23684aeda6a4, type: 2}
   NewBeat:
     m_PersistentCalls:
