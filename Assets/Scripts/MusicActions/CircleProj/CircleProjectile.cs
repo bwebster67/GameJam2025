@@ -4,7 +4,7 @@ public class CircleProjectile : ProjectileTemp
 {
 
     /* projectile lifespan in seconds */
-    public float projLifespan = 1f;
+    public float projLifespan = 2f;
 
     void Start()
     {

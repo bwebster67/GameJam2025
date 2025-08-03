@@ -5,7 +5,7 @@ using UnityEngine;
 public class SnareAction : MusicAction
 {
     [SerializeField] private GameObject snareProjPrefab;
-    [SerializeField] private float damage = 7.5f;
+    [SerializeField] private float damage = 11f;
 
     public override IEnumerator Execute(MonoBehaviour runner)
     {

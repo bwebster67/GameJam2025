@@ -3,7 +3,7 @@ using UnityEngine;
 public class ShootEnemyProjectile : MonoBehaviour
 {
     private Transform player;
-    public float speed = 5;
+    public float speed = 3f;
     private Vector2 moveDirection;
     public float projLifespan = 3f;
     public PlayerHealthController playerHealthController;

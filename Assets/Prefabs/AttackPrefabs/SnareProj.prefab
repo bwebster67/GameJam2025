@@ -102,9 +102,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df0288715878ecb45b0d4e85f1d287ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 8
+  damage: 11
   lifespan: 3
-  bulletSpeed: 6
+  bulletSpeed: 7
   screenShake: {fileID: 215926732267978428, guid: 8ed77408726f0dc4aa4a27d3fe808c4d, type: 3}
 --- !u!58 &-1477917674054132542
 CircleCollider2D:

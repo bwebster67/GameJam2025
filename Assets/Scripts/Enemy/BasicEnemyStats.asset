@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BasicEnemyStats
   m_EditorClassIdentifier: 
   maxHealth: 30
-  moveSpeed: 4
+  moveSpeed: 3
   sprite: {fileID: 7482667652216324306, guid: c31f60c6f523a7f4b9004f4436763dd4, type: 3}
-  ExpValue: 1
+  ExpValue: 1.2
   damage: 10

@@ -17,18 +17,47 @@ public class SpawnManager : MonoBehaviour
     [Range(0f, 1f)] public float leftWeight = 0.25f;
     [Range(0f, 1f)] public float rightWeight = 0.25f;
 
-    private float timer;
-    public int randomIndex;
+    private float spawnTimer;
+    private float waveTimer;
+
+    [Header("Wave Settings")]
+    [SerializeField] private float waveInterval = 20f;
+    private int baseWaveCount = 10;
+    private int waveNumber = 0;
 
     void Update()
     {
-        timer += Time.deltaTime;
-        if (timer >= spawnInterval)
+        // Regular spawn (optional — keep if you want ambient spawns too)
+        spawnTimer += Time.deltaTime;
+        if (spawnTimer >= spawnInterval)
         {
             SpawnEnemy();
-            timer = 0f;
+            spawnTimer = 0f;
+            spawnInterval = Mathf.Max(0.5f, spawnInterval - 0.05f); // Optional
+        }
 
-            spawnInterval = Mathf.Max(0.5f, spawnInterval - 0.05f);
+        // Wave spawn
+        waveTimer += Time.deltaTime;
+        if (waveTimer >= waveInterval)
+        {
+            spawnWave();
+            waveTimer = 0f;
+        }
+    }
+
+    void spawnWave()
+    {
+        waveNumber++;
+
+        // Increase by +3, then +4, then +5...
+        int extra = Mathf.Min(3 + (waveNumber - 1), 99); // cap if needed
+        int enemyCount = baseWaveCount + (waveNumber - 1) * extra;
+
+        Debug.Log($"Spawning Wave {waveNumber} with {enemyCount} enemies");
+
+        for (int i = 0; i < enemyCount; i++)
+        {
+            SpawnEnemy();
         }
     }
 
@@ -37,8 +66,9 @@ public class SpawnManager : MonoBehaviour
         Vector2 direction = GetWeightedDirection();
         Vector2 spawnPos = (Vector2)player.position + direction * spawnDistance;
 
-        randomIndex = Random.Range(0, enemyPrefabList.Count);
+        int randomIndex = Random.Range(0, enemyPrefabList.Count);
         GameObject randomEnemyPrefab = enemyPrefabList[randomIndex];
+
         Instantiate(randomEnemyPrefab, spawnPos, Quaternion.identity);
     }
 

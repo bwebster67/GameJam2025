@@ -75,6 +75,9 @@ public class PlayerMusicController : MonoBehaviour
 
     private void Start()
     {
+        StartCoroutine(WaitForBeatActions());
+        StopMusic();
+       
         beatActions = new List<MusicAction>();
         noteBar = NoteBarGO.GetComponent<NoteBar>();
         secondsPerBeat = 60.0 / bpm;
@@ -83,7 +86,8 @@ public class PlayerMusicController : MonoBehaviour
         while (beatActions.Count < beatsPerCycle)
             beatActions.Add(null);
 
-        for (int i = 0; i < beatActions.Count; i++) {
+        for (int i = 0; i < beatActions.Count; i++)
+        {
             AddNonDroppedNode(i, NullAction);
         }
 
@@ -94,17 +98,41 @@ public class PlayerMusicController : MonoBehaviour
         for (int i = 4; i < beatsPerCycle; i += 7)
             AddNonDroppedNode(i, SnareAction);
 
-       
-           // StartMusic();
-        
+
+         StartMusic();
+
     }
- 
+
     void HandleOnStartMusic()
     {
         StartMusic();
     }
+    private IEnumerator WaitForBeatActions()   // debug
+    {
+        // Wait until beatActions is not null and has contents
+        while (beatActions == null || beatActions.Count == 0)
+        {
+            yield return null;
+        }
+
+        Debug.Log("beatActions loaded with " + beatActions.Count + " entries. Starting music.");
+        StartMusic();
+    }
     public void StartMusic()
     {
+        if (beatActions == null)
+        {
+            Debug.LogError("StartMusic failed: beatActions is null.");
+            return;
+        }
+
+        if (beatActions.Count == 0)
+        {
+            Debug.LogError("StartMusic failed: beatActions is empty.");
+            return;
+        }
+
+        Debug.Log("StartMusic succeeded: beatActions count = " + beatActions.Count);
         double now = AudioSettings.dspTime;
         nextBeatDspTime = Mathf.Ceil((float)(now / secondsPerBeat)) * secondsPerBeat;
 
@@ -132,11 +160,11 @@ public class PlayerMusicController : MonoBehaviour
         if (rect != null)
         {
             rect.anchoredPosition = Vector2.zero; // Center in parent canvas
-        } 
+        }
 
         dragDropGO.transform.SetParent(noteBar.Notes[index].transform);
         dragDropGO.transform.position = noteBar.Notes[index].transform.position + new Vector3(0, 3, 0);
-        
+
         AddNote(index, action);
     }
     public void AddDroppedNode(int index, MusicAction action)

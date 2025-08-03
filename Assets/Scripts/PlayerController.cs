@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("magnitude: " + input.magnitude);
+        
         ProcessInputs();
         Animate();
     }

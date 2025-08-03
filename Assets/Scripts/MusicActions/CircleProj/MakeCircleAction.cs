@@ -9,9 +9,9 @@ public class MakeCircleAction : MusicAction
 {
     public GameObject prefab;
     public Quaternion rotation = new Quaternion(0f,0f,0f,-30f);
-    public float projLifespan = 0.2f;
+    public float projLifespan = 2f;
 
-    public float damage;
+    public float damage = 20f;
 
     public override IEnumerator Execute(MonoBehaviour runner)
     {

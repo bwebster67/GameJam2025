@@ -16,12 +16,13 @@ public class UIManagerScript : MonoBehaviour
 
     public static event Action OnPauseEvent;
     public static event Action OnUnPauseEvent;
-  
+
 
     [SerializeField] PlayerHealthController playerHP;
     [SerializeField] GameObject Player;
     [SerializeField] private SoundFXManager soundMngr;
     [SerializeField] private PlayerMusicController playerMusic;
+    [SerializeField] private PlayerHealthController PlayerHealthController;
 
     public static event Action StartClickEvent;
     // Level Up Listener
@@ -32,23 +33,23 @@ public class UIManagerScript : MonoBehaviour
             canvas.SetActive(true);
         else
             Debug.LogWarning("UIManagerScript: Canvas not assigned!");
-        
-       
+
+
         PlayerMusicController.LevelUpEvent += HandleLevelUp;
         LevelUpUI.OnFinishLevelUpSequence += InvokeUnpause;
     }
-    
+
     public void clickPlay()
     {
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
 
-        canvas.SetActive(true);
-        StartMenuCanvas.SetActive(false);
-        StartClickEvent.Invoke();
+        //canvas.SetActive(true);
+        //StartMenuCanvas.SetActive(false);
+        //StartClickEvent.Invoke();
     }
     public void restart()
     {
-        
+
         ReloadCurrentScene();
     }
     public void ReloadCurrentScene()
@@ -71,7 +72,7 @@ public class UIManagerScript : MonoBehaviour
         {
             rect.anchoredPosition = Vector2.zero; // Center in parent canvas
         }
-        LevelUpUI levelUpUI = levelUpMenuGO.GetComponent<LevelUpUI>();  
+        LevelUpUI levelUpUI = levelUpMenuGO.GetComponent<LevelUpUI>();
         levelUpUI.canvas = canvas.GetComponent<Canvas>();
         Time.timeScale = 0;
         OnPauseEvent.Invoke();
@@ -80,19 +81,21 @@ public class UIManagerScript : MonoBehaviour
 
     void Start()
     {
-        StartClickEvent.Invoke();/// starts beat
-        if (canvas == null)
-            {
-                GameObject found = GameObject.FindWithTag("Canvas");
-                if (found != null)
-                    canvas = found;
-                else
-                    Debug.LogError("UIManagerScript: Could not find Canvas in scene.");
-            }
+        //PlayerHealthController = GetComponent<PlayerHealthController>();
 
-            if (canvas != null)
-                canvas.SetActive(true);
-        
+       // StartClickEvent.Invoke();/// starts beat
+        if (canvas == null)
+        {
+            GameObject found = GameObject.FindWithTag("Canvas");
+            if (found != null)
+                canvas = found;
+            else
+                Debug.LogError("UIManagerScript: Could not find Canvas in scene.");
+        }
+
+        if (canvas != null)
+            canvas.SetActive(true);
+
     }
 
 
@@ -106,11 +109,11 @@ public class UIManagerScript : MonoBehaviour
         PlayerMusicController playerMusicController = Player.GetComponent<PlayerMusicController>();
         playerMusicController.ChangeToCircleAttack(dropdown.value);
     }
-  
+
 
     //////////////////////    FUNCTIONS ////////////////////////////
- 
-    public void enableMenu(GameObject menu) 
+
+    public void enableMenu(GameObject menu)
     {
         menu.SetActive(true);
     }
@@ -124,7 +127,7 @@ public class UIManagerScript : MonoBehaviour
         Time.timeScale = 1;
         OnUnPauseEvent.Invoke();
     }
-    
+
     /// enables pause menu and sets time scale to 0
     public void PauseMenu()
     {
@@ -160,13 +163,17 @@ public class UIManagerScript : MonoBehaviour
 
     public void onRespawnClick()
     {
-        playerHP.Respawn();
+        respawnMenu.gameObject.SetActive(false);
+        PlayerHealthController.isDead = false;
+        SceneManager.LoadScene("StartMenuScene");
+        Time.timeScale = 1;
+
     }
     //////////////////////////////////////////////////
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             Debug.Log("paused");
             PauseMenu();
@@ -178,6 +185,11 @@ public class UIManagerScript : MonoBehaviour
         }
 
     }
-   
 
+    public void openRespawnMenu()
+    {
+        respawnMenu.gameObject.SetActive(true);
+    }
+
+    
 }
