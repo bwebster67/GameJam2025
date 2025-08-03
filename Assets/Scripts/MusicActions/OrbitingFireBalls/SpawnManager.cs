@@ -8,7 +8,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private Transform player;
 
     [Header("Spawn Settings")]
-    [SerializeField] private float spawnInterval = 2f;
+    [SerializeField] private float spawnInterval = 3f;
     [SerializeField] private float spawnDistance = 15f;
 
     [Header("Spawn Weights (Total Should Sum to 1)")]
@@ -27,6 +27,8 @@ public class SpawnManager : MonoBehaviour
         {
             SpawnEnemy();
             timer = 0f;
+
+            spawnInterval = Mathf.Max(0.5f, spawnInterval - 0.05f);
         }
     }
 

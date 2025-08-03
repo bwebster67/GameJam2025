@@ -41,7 +41,10 @@ public class ShootEnemyProjectile : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        playerHealthController.TakeDamage(damage);
-        Destroy(gameObject);
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            playerHealthController.TakeDamage(damage);
+            Destroy(gameObject);
+        }
     }
 }
