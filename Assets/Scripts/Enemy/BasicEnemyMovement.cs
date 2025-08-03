@@ -27,13 +27,13 @@ public class BasicEnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        float distance = Vector2.Distance(transform.position, player.transform.position);
-        Vector2 direction = player.transform.position - transform.position;
-        direction.Normalize();
-
-        transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, enemy.enemyStats.moveSpeed * Time.deltaTime );
-
+        if (player)
+        {
+            float distance = Vector2.Distance(transform.position, player.transform.position);
+            Vector2 direction = player.transform.position - transform.position;
+            direction.Normalize();
+            transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, enemy.enemyStats.moveSpeed * Time.deltaTime );
+        }
 
     }
 }

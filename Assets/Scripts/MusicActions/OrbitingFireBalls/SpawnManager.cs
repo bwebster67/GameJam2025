@@ -1,13 +1,15 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
     [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private List<GameObject> enemyPrefabList;
     [SerializeField] private Transform player;
 
     [Header("Spawn Settings")]
-    [SerializeField] private float spawnInterval = 2f;
-    [SerializeField] private float spawnDistance = 12f;
+    [SerializeField] private float spawnInterval = 3f;
+    [SerializeField] private float spawnDistance = 15f;
 
     [Header("Spawn Weights (Total Should Sum to 1)")]
     [Range(0f, 1f)] public float topWeight = 0.25f;
@@ -16,6 +18,7 @@ public class SpawnManager : MonoBehaviour
     [Range(0f, 1f)] public float rightWeight = 0.25f;
 
     private float timer;
+    public int randomIndex;
 
     void Update()
     {
@@ -24,6 +27,8 @@ public class SpawnManager : MonoBehaviour
         {
             SpawnEnemy();
             timer = 0f;
+
+            spawnInterval = Mathf.Max(0.5f, spawnInterval - 0.05f);
         }
     }
 
@@ -32,7 +37,9 @@ public class SpawnManager : MonoBehaviour
         Vector2 direction = GetWeightedDirection();
         Vector2 spawnPos = (Vector2)player.position + direction * spawnDistance;
 
-        Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
+        randomIndex = Random.Range(0, enemyPrefabList.Count);
+        GameObject randomEnemyPrefab = enemyPrefabList[randomIndex];
+        Instantiate(randomEnemyPrefab, spawnPos, Quaternion.identity);
     }
 
     Vector2 GetWeightedDirection()

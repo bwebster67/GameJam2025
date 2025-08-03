@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ba9e1dfc0279ca4abe363d8d9222b88, type: 3}
   m_Name: MakeFireBallAction
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: d865fd8655f7a7240b1e68816b184a70, type: 3}
+  clip: {fileID: 8300000, guid: 66ac0cf2c47e96b49a86cb7529d3d5d4, type: 3}
   actionIcon: {fileID: -3901134388601381244, guid: 6f581d36558771d4da5013f99bc2ab91, type: 3}
   fireball: {fileID: 8158937197174102301, guid: 4007479c10e221b43b2a6f0509e4093f, type: 3}
   damage: 20

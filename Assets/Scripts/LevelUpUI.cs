@@ -26,6 +26,7 @@ public class LevelUpUI : MonoBehaviour
     public GameObject DragDropPrefab;
     public Canvas canvas;
     public GameObject SaveButton;
+    public GameObject SelectedItemHolder;
     public static event Action OnFinishLevelUpSequence;
 
     void Start()
@@ -79,7 +80,10 @@ public class LevelUpUI : MonoBehaviour
             RectTransform rect = dragDropPrefab.GetComponent<RectTransform>();
             if (rect != null)
             {
-                rect.anchoredPosition = Vector2.zero; // Center in parent canvas
+                // Random position within 150 pixels of (0,0)
+                float randX = UnityEngine.Random.Range(-50f, 50f);
+                float randY = UnityEngine.Random.Range(-50f, 50f);
+                rect.anchoredPosition = new Vector2(randX, randY);
             } 
         }
     }
@@ -101,7 +105,10 @@ public class LevelUpUI : MonoBehaviour
             RectTransform rect = dragDropPrefab.GetComponent<RectTransform>();
             if (rect != null)
             {
-                rect.anchoredPosition = Vector2.zero; // Center in parent canvas
+                // Random position within 150 pixels of (0,0)
+                float randX = UnityEngine.Random.Range(-50f, 50f);
+                float randY = UnityEngine.Random.Range(-50f, 50f);
+                rect.anchoredPosition = new Vector2(randX, randY);
             } 
         }
     }
@@ -123,7 +130,10 @@ public class LevelUpUI : MonoBehaviour
             RectTransform rect = dragDropPrefab.GetComponent<RectTransform>();
             if (rect != null)
             {
-                rect.anchoredPosition = Vector2.zero; // Center in parent canvas
+                // Random position within 150 pixels of (0,0)
+                float randX = UnityEngine.Random.Range(-50f, 50f);
+                float randY = UnityEngine.Random.Range(-50f, 50f);
+                rect.anchoredPosition = new Vector2(randX, randY);
             } 
         }
     }
@@ -140,6 +150,7 @@ public class LevelUpUI : MonoBehaviour
     public void FinishLevelUpSequence()
     {
         Destroy(SaveButton);
+        Destroy(SelectedItemHolder);
         OnFinishLevelUpSequence.Invoke();
     }
     

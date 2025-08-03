@@ -19,6 +19,18 @@ public class Note : MonoBehaviour, IDropHandler
     private PlayerMusicController playerMusicController;
     private GameObject playerGO;
 
+    void Awake()
+    {
+        playerGO = GameObject.FindGameObjectWithTag("Player");
+        if (playerGO != null)
+        {
+            playerMusicController = playerGO.GetComponent<PlayerMusicController>();
+        }
+        animator = GetComponent<Animator>();
+        iconImage = icon.GetComponent<UnityEngine.UI.Image>();
+        iconImage.color = Color.clear;
+    }
+
     void Update()
     {
         bool hasDragDrop = GetComponentInChildren<DragDrop>() != null;
@@ -59,20 +71,8 @@ public class Note : MonoBehaviour, IDropHandler
         }
     }
 
-    void Awake()
-    {
-        playerGO = GameObject.FindGameObjectWithTag("Player");
-        if (playerGO != null)
-        {
-            playerMusicController = playerGO.GetComponent<PlayerMusicController>();
-        }
-        animator = GetComponent<Animator>();
-        iconImage = icon.GetComponent<UnityEngine.UI.Image>();
-        iconImage.color = Color.clear;
-    }
-    void Start()
-    {
-    }
+
+
     public void NoteRise()
     {
         animator.SetTrigger("IsActive");

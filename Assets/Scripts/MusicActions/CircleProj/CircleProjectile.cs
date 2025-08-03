@@ -2,19 +2,18 @@ using UnityEngine;
 
 public class CircleProjectile : ProjectileTemp
 {
-    
-     /* projectile lifespan in seconds */
+
+    /* projectile lifespan in seconds */
+    public float projLifespan = 1f;
 
     void Start()
     {
-        Destroy(gameObject, lifespan);
+        Destroy(gameObject, projLifespan);
     }
 
     protected override void DamageEnemy(Collider2D collider)
     {
         base.DamageEnemy(collider); 
-
-       
 
         Debug.Log("CircleProjectile hit something");
     }

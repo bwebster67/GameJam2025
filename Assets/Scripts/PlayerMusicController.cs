@@ -47,6 +47,7 @@ public class PlayerMusicController : MonoBehaviour
     public float playerExperience = 0f;
     public float levelUpThreshold = 7;
 
+
     public UIManagerScript uiMngr;
     private void OnEnable()
     {
@@ -169,7 +170,6 @@ public class PlayerMusicController : MonoBehaviour
                     break;
                 }
             }
-
             src.clip = clip;
             src.PlayScheduled(nextBeatDspTime);
             if (clip != null)
