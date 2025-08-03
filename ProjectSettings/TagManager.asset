@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 3
   tags:
   - Enemy
+  - UIManager
+  - Canvas
   layers:
   - Default
   - TransparentFX
@@ -56,6 +58,9 @@ TagManager:
     locked: 0
   - name: Attack
     uniqueID: 1388070945
+    locked: 0
+  - name: ui
+    uniqueID: 1856074475
     locked: 0
   m_RenderingLayers:
   - Default

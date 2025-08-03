@@ -1,10 +1,7 @@
 using UnityEngine;
-using Unity.UI;
-using UnityEngine.Android;
-using UnityEngine.UI;
-using UnityEngine.UIElements;
 using TMPro;
 using System;
+using UnityEngine.SceneManagement;
 
 public class UIManagerScript : MonoBehaviour
 {
@@ -15,22 +12,51 @@ public class UIManagerScript : MonoBehaviour
     public GameObject levelUpMenu;
     public GameObject canvas;
     public TMP_Dropdown dropdown;
+    public GameObject StartMenuCanvas;
 
     public static event Action OnPauseEvent;
     public static event Action OnUnPauseEvent;
+  
 
     [SerializeField] PlayerHealthController playerHP;
     [SerializeField] GameObject Player;
     [SerializeField] private SoundFXManager soundMngr;
     [SerializeField] private PlayerMusicController playerMusic;
 
+    public static event Action StartClickEvent;
     // Level Up Listener
     private void OnEnable()
     {
+        ////Start Menu stuff
+        if (canvas != null)
+            canvas.SetActive(true);
+        else
+            Debug.LogWarning("UIManagerScript: Canvas not assigned!");
+        
+       
         PlayerMusicController.LevelUpEvent += HandleLevelUp;
         LevelUpUI.OnFinishLevelUpSequence += InvokeUnpause;
     }
+    
+    public void clickPlay()
+    {
+        Time.timeScale = 1;
 
+        canvas.SetActive(true);
+        StartMenuCanvas.SetActive(false);
+        StartClickEvent.Invoke();
+    }
+    public void restart()
+    {
+        
+        ReloadCurrentScene();
+    }
+    public void ReloadCurrentScene()
+    {
+        //string currentSceneName = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene("GameScene");
+        //StartClickEvent.Invoke();/// starts beat
+    }
     private void OnDisable()
     {
         PlayerMusicController.LevelUpEvent += HandleLevelUp;
@@ -45,17 +71,28 @@ public class UIManagerScript : MonoBehaviour
         {
             rect.anchoredPosition = Vector2.zero; // Center in parent canvas
         }
-        LevelUpUI levelUpUI = levelUpMenu.GetComponent<LevelUpUI>();
-        levelUpUI.canvas = canvas;
+        LevelUpUI levelUpUI = levelUpMenuGO.GetComponent<LevelUpUI>();  
+        levelUpUI.canvas = canvas.GetComponent<Canvas>();
         Time.timeScale = 0;
         OnPauseEvent.Invoke();
     }
-
     public int selectedNumber = 0;
 
     void Start()
     {
-        dropdown = dropdownMenu.GetComponent<TMP_Dropdown>();
+        StartClickEvent.Invoke();/// starts beat
+        if (canvas == null)
+            {
+                GameObject found = GameObject.FindWithTag("Canvas");
+                if (found != null)
+                    canvas = found;
+                else
+                    Debug.LogError("UIManagerScript: Could not find Canvas in scene.");
+            }
+
+            if (canvas != null)
+                canvas.SetActive(true);
+        
     }
 
 
@@ -134,6 +171,13 @@ public class UIManagerScript : MonoBehaviour
             Debug.Log("paused");
             PauseMenu();
         }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Debug.Log("restart");
+            restart();
+        }
 
     }
+   
+
 }

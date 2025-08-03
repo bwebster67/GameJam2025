@@ -54,6 +54,7 @@ public class PlayerMusicController : MonoBehaviour
         UIManagerScript.OnPauseEvent += StopMusic;
         UIManagerScript.OnUnPauseEvent += StartMusic;
         Note.OnNoteDropped += AddDroppedNode;
+        UIManagerScript.StartClickEvent += StartMusic;
     }
 
     private void OnDisable()
@@ -62,6 +63,7 @@ public class PlayerMusicController : MonoBehaviour
         UIManagerScript.OnPauseEvent -= StopMusic;
         UIManagerScript.OnUnPauseEvent -= StartMusic;
         Note.OnNoteDropped -= AddDroppedNode;
+        UIManagerScript.StartClickEvent -= StartMusic;
     }
 
     private void Awake()
@@ -91,6 +93,13 @@ public class PlayerMusicController : MonoBehaviour
         for (int i = 4; i < beatsPerCycle; i += 7)
             AddNonDroppedNode(i, SnareAction);
 
+       
+           // StartMusic();
+        
+    }
+ 
+    void HandleOnStartMusic()
+    {
         StartMusic();
     }
     public void StartMusic()

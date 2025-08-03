@@ -1,0 +1,1341 @@
+fileFormatVersion: 2
+guid: a3e0789eeab7c5d4d9e38bf66be43b55
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3776443857852403090
+    second: GandalfHardcore 64x64 Projectiles5b_0
+  - first:
+      213: -6979798836221992680
+    second: GandalfHardcore 64x64 Projectiles5b_1
+  - first:
+      213: 2532570406583086657
+    second: GandalfHardcore 64x64 Projectiles5b_2
+  - first:
+      213: 4269744873904414539
+    second: GandalfHardcore 64x64 Projectiles5b_3
+  - first:
+      213: 5758736884055462304
+    second: GandalfHardcore 64x64 Projectiles5b_4
+  - first:
+      213: -8653167818927197726
+    second: GandalfHardcore 64x64 Projectiles5b_5
+  - first:
+      213: 7284129522045496234
+    second: GandalfHardcore 64x64 Projectiles5b_6
+  - first:
+      213: -934050873444728179
+    second: GandalfHardcore 64x64 Projectiles5b_7
+  - first:
+      213: -191231692033031922
+    second: GandalfHardcore 64x64 Projectiles5b_8
+  - first:
+      213: 8068473256602257381
+    second: GandalfHardcore 64x64 Projectiles5b_9
+  - first:
+      213: 9149001743611201772
+    second: GandalfHardcore 64x64 Projectiles5b_10
+  - first:
+      213: -2636017434585350599
+    second: GandalfHardcore 64x64 Projectiles5b_11
+  - first:
+      213: 2378181737517000273
+    second: GandalfHardcore 64x64 Projectiles5b_12
+  - first:
+      213: 6659471562893007690
+    second: GandalfHardcore 64x64 Projectiles5b_13
+  - first:
+      213: 1769856881027557527
+    second: GandalfHardcore 64x64 Projectiles5b_14
+  - first:
+      213: -2271831607063329127
+    second: GandalfHardcore 64x64 Projectiles5b_15
+  - first:
+      213: 9159955493567758561
+    second: GandalfHardcore 64x64 Projectiles5b_16
+  - first:
+      213: -1727362793546662238
+    second: GandalfHardcore 64x64 Projectiles5b_17
+  - first:
+      213: 2806089425661907766
+    second: GandalfHardcore 64x64 Projectiles5b_18
+  - first:
+      213: -2404211428936236014
+    second: GandalfHardcore 64x64 Projectiles5b_19
+  - first:
+      213: 7069306089073733791
+    second: GandalfHardcore 64x64 Projectiles5b_20
+  - first:
+      213: -897033088163331038
+    second: GandalfHardcore 64x64 Projectiles5b_21
+  - first:
+      213: 4897886764759901414
+    second: GandalfHardcore 64x64 Projectiles5b_22
+  - first:
+      213: 8959178438558552747
+    second: GandalfHardcore 64x64 Projectiles5b_23
+  - first:
+      213: 4199222871171992559
+    second: GandalfHardcore 64x64 Projectiles5b_24
+  - first:
+      213: 3948803835377048229
+    second: GandalfHardcore 64x64 Projectiles5b_25
+  - first:
+      213: 7401338302561002110
+    second: GandalfHardcore 64x64 Projectiles5b_26
+  - first:
+      213: -4704128466772903327
+    second: GandalfHardcore 64x64 Projectiles5b_27
+  - first:
+      213: 3425813298149663542
+    second: GandalfHardcore 64x64 Projectiles5b_28
+  - first:
+      213: -3463474827963693541
+    second: GandalfHardcore 64x64 Projectiles5b_29
+  - first:
+      213: 3037610849448491474
+    second: GandalfHardcore 64x64 Projectiles5b_30
+  - first:
+      213: -4723131011538596189
+    second: GandalfHardcore 64x64 Projectiles5b_31
+  - first:
+      213: -4728205069284126955
+    second: GandalfHardcore 64x64 Projectiles5b_32
+  - first:
+      213: -1534098267330897390
+    second: GandalfHardcore 64x64 Projectiles5b_33
+  - first:
+      213: 6578948014181413433
+    second: GandalfHardcore 64x64 Projectiles5b_34
+  - first:
+      213: -2584205633663950799
+    second: GandalfHardcore 64x64 Projectiles5b_35
+  - first:
+      213: -3432650785056264649
+    second: GandalfHardcore 64x64 Projectiles5b_36
+  - first:
+      213: -6247246070798299064
+    second: GandalfHardcore 64x64 Projectiles5b_37
+  - first:
+      213: -2975348130375998845
+    second: GandalfHardcore 64x64 Projectiles5b_38
+  - first:
+      213: -4199566857349182871
+    second: GandalfHardcore 64x64 Projectiles5b_39
+  - first:
+      213: 8423963408849345831
+    second: GandalfHardcore 64x64 Projectiles5b_40
+  - first:
+      213: -1679127181367049225
+    second: GandalfHardcore 64x64 Projectiles5b_41
+  - first:
+      213: 7942297015873343260
+    second: GandalfHardcore 64x64 Projectiles5b_42
+  - first:
+      213: -28027424628652390
+    second: GandalfHardcore 64x64 Projectiles5b_43
+  - first:
+      213: 6685785990394977307
+    second: GandalfHardcore 64x64 Projectiles5b_44
+  - first:
+      213: -4841405412114707934
+    second: GandalfHardcore 64x64 Projectiles5b_45
+  - first:
+      213: 6219059043978324269
+    second: GandalfHardcore 64x64 Projectiles5b_46
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: GandalfHardcore 64x64 Projectiles5b_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 462
+        width: 55
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3562d8d71f19cb541b228c72fdbd227c
+      internalID: -3776443857852403090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GandalfHardcore 64x64 Projectiles5b_1
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 462
+        width: 56
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74ec436eed7df4640ab45f6e87d8da7f
+      internalID: -6979798836221992680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GandalfHardcore 64x64 Projectiles5b_2
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 462
+        width: 58
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3e868336b928954d92591b4f8105150
+      internalID: 2532570406583086657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GandalfHardcore 64x64 Projectiles5b_3
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 462
+        width: 51
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 596aa8ca486787e4c8634b0e6e28fd42
+      internalID: 4269744873904414539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GandalfHardcore 64x64 Projectiles5b_4
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 477
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b0bff9ffc889f14d979298155c0d157
+      internalID: 5758736884055462304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GandalfHardcore 64x64 Projectiles5b_5
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 462
+        width: 60
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffa69ec567ff5a64f954d4888b7b77fc
+      internalID: -8653167818927197726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GandalfHardcore 64x64 Projectiles5b_6
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 398
+        width: 50
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2a5eb7b49bb3ba4f817d6513fc12e5f
+      internalID: 7284129522045496234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GandalfHardcore 64x64 Projectiles5b_7
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 413
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e64c45b9c158954dbe599aa8c1ba9f0
+      internalID: -934050873444728179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GandalfHardcore 64x64 Projectiles5b_8
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 398
+        width: 55
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b23d7668c1046a47b3f3a3d30c96ec2
+      internalID: -191231692033031922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GandalfHardcore 64x64 Projectiles5b_9
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 398
+        width: 62
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cd091d416522374a816e7a25ca9d5cc
+      internalID: 8068473256602257381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GandalfHardcore 64x64 Projectiles5b_10
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 398
+        width: 54
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94d4a6ebc3b3a1548b2af4e53577ccea
+      internalID: 9149001743611201772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GandalfHardcore 64x64 Projectiles5b_11
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 398
+        width: 52
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a592c354bb308248857e00e2a0b3f7a
+      internalID: -2636017434585350599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GandalfHardcore 64x64 Projectiles5b_12
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 334
+        width: 54
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b4edd172a4c9924c9b8d9ce728b635f
+      internalID: 2378181737517000273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GandalfHardcore 64x64 Projectiles5b_13
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 334
+        width: 55
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b571f873b6f42a44a54896f75ad6d2a
+      internalID: 6659471562893007690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GandalfHardcore 64x64 Projectiles5b_14
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 333
+        width: 55
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de99acfea2f648f47878ef283c62a789
+      internalID: 1769856881027557527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GandalfHardcore 64x64 Projectiles5b_15
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 333
+        width: 56
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e708170d0c745aa489c086bce987b923
+      internalID: -2271831607063329127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GandalfHardcore 64x64 Projectiles5b_16
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 333
+        width: 52
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d701d3d365d75f4bb8ffc237bdc8645
+      internalID: 9159955493567758561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GandalfHardcore 64x64 Projectiles5b_17
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 270
+        width: 54
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4317ad07646abfb4ba0b28c541828cc0
+      internalID: -1727362793546662238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GandalfHardcore 64x64 Projectiles5b_18
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 269
+        width: 56
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0363cef1b01e2324393da2691ed11f3d
+      internalID: 2806089425661907766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GandalfHardcore 64x64 Projectiles5b_19
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 269
+        width: 58
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67abd55dbe546ef4a951c889fe415478
+      internalID: -2404211428936236014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GandalfHardcore 64x64 Projectiles5b_20
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 269
+        width: 57
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e83b492736fbce1499ecf922243c7d6f
+      internalID: 7069306089073733791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GandalfHardcore 64x64 Projectiles5b_21
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 269
+        width: 59
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fe334c03addffe409c9418b30cafe6a
+      internalID: -897033088163331038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GandalfHardcore 64x64 Projectiles5b_22
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 206
+        width: 60
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0967ca57f252ad4f9382ff546592a69
+      internalID: 4897886764759901414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GandalfHardcore 64x64 Projectiles5b_23
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 206
+        width: 56
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66d40eb41f755f543ba8af97a0873ecf
+      internalID: 8959178438558552747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GandalfHardcore 64x64 Projectiles5b_24
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 206
+        width: 56
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 579f7aeba99dbcc48bfd581dc58cc539
+      internalID: 4199222871171992559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GandalfHardcore 64x64 Projectiles5b_25
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 206
+        width: 59
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfb1abbe457b67545b19b163d37de9ee
+      internalID: 3948803835377048229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GandalfHardcore 64x64 Projectiles5b_26
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 206
+        width: 52
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09d0b20fdd6dbaa4ea9b1d8a36a57287
+      internalID: 7401338302561002110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GandalfHardcore 64x64 Projectiles5b_27
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 221
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13396f9130b8943488324dedf6d6f776
+      internalID: -4704128466772903327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GandalfHardcore 64x64 Projectiles5b_28
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 142
+        width: 54
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 498901c594aeda64ab86288ebe39a257
+      internalID: 3425813298149663542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GandalfHardcore 64x64 Projectiles5b_29
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 157
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51e2b21e46f070b47bfbc8831cb79a39
+      internalID: -3463474827963693541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GandalfHardcore 64x64 Projectiles5b_30
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 142
+        width: 58
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e8fb7711b464a349892dfebd4587bc4
+      internalID: 3037610849448491474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GandalfHardcore 64x64 Projectiles5b_31
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 142
+        width: 50
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5f72b056673f604196439605b4e3633
+      internalID: -4723131011538596189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GandalfHardcore 64x64 Projectiles5b_32
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 156
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: feccc40777ace134db36e0078c02b59d
+      internalID: -4728205069284126955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GandalfHardcore 64x64 Projectiles5b_33
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 141
+        width: 56
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 529b6de401a84514b8abf341dff85d41
+      internalID: -1534098267330897390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GandalfHardcore 64x64 Projectiles5b_34
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 150
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1de495caa36b7d45b62f1cb38f60557
+      internalID: 6578948014181413433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GandalfHardcore 64x64 Projectiles5b_35
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 141
+        width: 56
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5d7088d6d15d67418fefa74c1cc131a
+      internalID: -2584205633663950799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GandalfHardcore 64x64 Projectiles5b_36
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 77
+        width: 57
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a386588da62d16a45b0ad95cd6b63e3d
+      internalID: -3432650785056264649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GandalfHardcore 64x64 Projectiles5b_37
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 77
+        width: 55
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d6425fad2ed20b43bbb587f369f2930
+      internalID: -6247246070798299064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GandalfHardcore 64x64 Projectiles5b_38
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 95
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c70f374e1612f0e4fbebdf419878eee2
+      internalID: -2975348130375998845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GandalfHardcore 64x64 Projectiles5b_39
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 77
+        width: 57
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75c56fe5b0ba94149bb6e046c3d3b8b5
+      internalID: -4199566857349182871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GandalfHardcore 64x64 Projectiles5b_40
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 77
+        width: 55
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc55880566fd3894f8c744b765302393
+      internalID: 8423963408849345831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GandalfHardcore 64x64 Projectiles5b_41
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 77
+        width: 49
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 951f0ed763b9dfa4c8c4daa8d94e0d00
+      internalID: -1679127181367049225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GandalfHardcore 64x64 Projectiles5b_42
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 13
+        width: 58
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 714b42a108985014ea7a2d5bff7576a1
+      internalID: 7942297015873343260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GandalfHardcore 64x64 Projectiles5b_43
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 13
+        width: 50
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dbb6dc39e5b5fa4586ac1352eaf4770
+      internalID: -28027424628652390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GandalfHardcore 64x64 Projectiles5b_44
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 14
+        width: 52
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bd7ac75b9cbf384e998ed03f30a837f
+      internalID: 6685785990394977307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GandalfHardcore 64x64 Projectiles5b_45
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 14
+        width: 53
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 851fa4ab8b12e6e438b4e58d923b2586
+      internalID: -4841405412114707934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GandalfHardcore 64x64 Projectiles5b_46
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 14
+        width: 54
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5129cb19c01483c458236707b4caf477
+      internalID: 6219059043978324269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 278eddede111bde44aebb1966c9e68c6
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      GandalfHardcore 64x64 Projectiles5b_0: -3776443857852403090
+      GandalfHardcore 64x64 Projectiles5b_1: -6979798836221992680
+      GandalfHardcore 64x64 Projectiles5b_10: 9149001743611201772
+      GandalfHardcore 64x64 Projectiles5b_11: -2636017434585350599
+      GandalfHardcore 64x64 Projectiles5b_12: 2378181737517000273
+      GandalfHardcore 64x64 Projectiles5b_13: 6659471562893007690
+      GandalfHardcore 64x64 Projectiles5b_14: 1769856881027557527
+      GandalfHardcore 64x64 Projectiles5b_15: -2271831607063329127
+      GandalfHardcore 64x64 Projectiles5b_16: 9159955493567758561
+      GandalfHardcore 64x64 Projectiles5b_17: -1727362793546662238
+      GandalfHardcore 64x64 Projectiles5b_18: 2806089425661907766
+      GandalfHardcore 64x64 Projectiles5b_19: -2404211428936236014
+      GandalfHardcore 64x64 Projectiles5b_2: 2532570406583086657
+      GandalfHardcore 64x64 Projectiles5b_20: 7069306089073733791
+      GandalfHardcore 64x64 Projectiles5b_21: -897033088163331038
+      GandalfHardcore 64x64 Projectiles5b_22: 4897886764759901414
+      GandalfHardcore 64x64 Projectiles5b_23: 8959178438558552747
+      GandalfHardcore 64x64 Projectiles5b_24: 4199222871171992559
+      GandalfHardcore 64x64 Projectiles5b_25: 3948803835377048229
+      GandalfHardcore 64x64 Projectiles5b_26: 7401338302561002110
+      GandalfHardcore 64x64 Projectiles5b_27: -4704128466772903327
+      GandalfHardcore 64x64 Projectiles5b_28: 3425813298149663542
+      GandalfHardcore 64x64 Projectiles5b_29: -3463474827963693541
+      GandalfHardcore 64x64 Projectiles5b_3: 4269744873904414539
+      GandalfHardcore 64x64 Projectiles5b_30: 3037610849448491474
+      GandalfHardcore 64x64 Projectiles5b_31: -4723131011538596189
+      GandalfHardcore 64x64 Projectiles5b_32: -4728205069284126955
+      GandalfHardcore 64x64 Projectiles5b_33: -1534098267330897390
+      GandalfHardcore 64x64 Projectiles5b_34: 6578948014181413433
+      GandalfHardcore 64x64 Projectiles5b_35: -2584205633663950799
+      GandalfHardcore 64x64 Projectiles5b_36: -3432650785056264649
+      GandalfHardcore 64x64 Projectiles5b_37: -6247246070798299064
+      GandalfHardcore 64x64 Projectiles5b_38: -2975348130375998845
+      GandalfHardcore 64x64 Projectiles5b_39: -4199566857349182871
+      GandalfHardcore 64x64 Projectiles5b_4: 5758736884055462304
+      GandalfHardcore 64x64 Projectiles5b_40: 8423963408849345831
+      GandalfHardcore 64x64 Projectiles5b_41: -1679127181367049225
+      GandalfHardcore 64x64 Projectiles5b_42: 7942297015873343260
+      GandalfHardcore 64x64 Projectiles5b_43: -28027424628652390
+      GandalfHardcore 64x64 Projectiles5b_44: 6685785990394977307
+      GandalfHardcore 64x64 Projectiles5b_45: -4841405412114707934
+      GandalfHardcore 64x64 Projectiles5b_46: 6219059043978324269
+      GandalfHardcore 64x64 Projectiles5b_5: -8653167818927197726
+      GandalfHardcore 64x64 Projectiles5b_6: 7284129522045496234
+      GandalfHardcore 64x64 Projectiles5b_7: -934050873444728179
+      GandalfHardcore 64x64 Projectiles5b_8: -191231692033031922
+      GandalfHardcore 64x64 Projectiles5b_9: 8068473256602257381
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

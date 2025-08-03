@@ -24,12 +24,16 @@ public class LevelUpUI : MonoBehaviour
     private int Option3Notes;
     public List<MusicAction> musicActions;
     public GameObject DragDropPrefab;
-    public GameObject canvas;
+    public Canvas canvas;
     public GameObject SaveButton;
     public static event Action OnFinishLevelUpSequence;
 
     void Start()
     {
+        //if (canvas == null)
+        //    canvas = GameObject.FindGameObjectWithTag("Canvas");
+
+
         int randomIndex;
 
         // Option 1
