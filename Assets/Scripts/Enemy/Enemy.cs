@@ -12,7 +12,6 @@ public class Enemy : MonoBehaviour, IPoolable
     public EnemyStats enemyStats;
     private float maxHealth;
     private float currentHealth;
-    private float moveSpeed;
     public float expValue;
 
 
@@ -24,9 +23,13 @@ public class Enemy : MonoBehaviour, IPoolable
     private SpriteRenderer spriteRenderer;
     private CinemachineImpulseSource impulseSource;
     public static event Action<Enemy> OnEnemyDied;
+    public GameObject player;
+    public PlayerHealthController playerHealthController;
 
     void Start()
     {
+        player = GameObject.FindWithTag("Player");
+        playerHealthController = player.GetComponent<PlayerHealthController>();
         
         spriteRenderer = GetComponent<SpriteRenderer>();
         if (enemyStats.sprite != null)
@@ -34,7 +37,6 @@ public class Enemy : MonoBehaviour, IPoolable
             spriteRenderer.sprite = enemyStats.sprite;
         }
         maxHealth = currentHealth = enemyStats.maxHealth;
-        moveSpeed = enemyStats.moveSpeed;
     }
 
     public void TakeDamage(float damage)
@@ -58,8 +60,11 @@ public class Enemy : MonoBehaviour, IPoolable
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Enemy Collided.");
-        // TakeDamage(10);
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            playerHealthController.TakeDamage(enemyStats.damage);
+            Debug.Log($"Enemy collided with player dealing {enemyStats.damage} damage.");
+        }
     }
     private void Awake()
     {
@@ -85,7 +90,7 @@ public class Enemy : MonoBehaviour, IPoolable
 
     private void Die()
     {
-        OnEnemyDied?.Invoke(this);
+        OnEnemyDied.Invoke(this);
         /// Particle Stuff--------
         ParticleSystem ps = particlePool.Get();
         ps.transform.position = transform.position;

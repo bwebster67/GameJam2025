@@ -24,8 +24,6 @@ public class PlayerHealthController : MonoBehaviour
         healthBar.setMaxHealth(maxHealth);
 
         transform.position = spawn;
-       
-     
 
     }
     public void TakeDamage(float damage)
@@ -33,9 +31,7 @@ public class PlayerHealthController : MonoBehaviour
         if (!isDead)
         {
             health -= damage;
-            healthBar.setHealth(health);
-
-
+            // healthBar.setHealth(health);
         }
     }
     public void Die()
@@ -49,10 +45,12 @@ public class PlayerHealthController : MonoBehaviour
         Debug.Log("Player Died!");
         Debug.LogWarning("Die() called on: " + gameObject.name);
 
-        if (deathParticle != null) 
-            {
+        if (deathParticle != null)
+        {
             Instantiate(deathParticle, transform.position, Quaternion.Euler(-90f, 0f, 0f));
-            Instantiate(deathParticle2, transform.position, Quaternion.identity); }
+            Instantiate(deathParticle2, transform.position, Quaternion.identity);
+        }
+        Time.timeScale = 0;
     }
     public void Respawn(Vector2 spawnPoint = default(Vector2)) // <--- this code means paramater is optional and default vect2 = 0,0
     {

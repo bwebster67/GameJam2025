@@ -10,5 +10,6 @@ public class EnemyStats : ScriptableObject
     public float moveSpeed;
     public Sprite sprite;
     public float ExpValue;
+    public float damage;
 
 }

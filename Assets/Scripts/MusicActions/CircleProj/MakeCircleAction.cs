@@ -9,6 +9,7 @@ public class MakeCircleAction : MusicAction
 {
     public GameObject prefab;
     public Quaternion rotation = new Quaternion(0f,0f,0f,-30f);
+    public float projLifespan = 0.2f;
 
     public float damage;
 
@@ -23,6 +24,7 @@ public class MakeCircleAction : MusicAction
         if (circle.TryGetComponent<CircleProjectile>(out var circleProjectile))
         {
             circleProjectile.damage = damage;
+            circleProjectile.projLifespan = projLifespan;
         }
 
         yield break;
