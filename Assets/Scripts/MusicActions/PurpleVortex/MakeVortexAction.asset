@@ -16,4 +16,4 @@ MonoBehaviour:
   actionIcon: {fileID: 21300000, guid: 4393fab8eee06714ab5909d8929516af, type: 3}
   vortexPrefab: {fileID: 6426695247452121755, guid: a2c015d5dbc028241b2630e7a220b1da, type: 3}
   Vortex: {fileID: 1275052660270446834, guid: a2c015d5dbc028241b2630e7a220b1da, type: 3}
-  damage: 25
+  damage: 10

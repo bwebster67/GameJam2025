@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour, IPoolable
     public float expValue;
 
 
-    private Color originalColor = Color.white;
+    private Color originalColor = new Color(109f/255f, 73f/255f, 109f/255f, 1f);
     public GameObject DamageNumberPopup;
     public ParticleSystemPool particlePool;
     [SerializeField] private ParticleSystem enemyDeath;

@@ -16,4 +16,4 @@ MonoBehaviour:
   actionIcon: {fileID: 4868110299486283018, guid: f435acd4891f77a4aba991c4226db760, type: 3}
   fireSpin: {fileID: 3041046977048896827, guid: 56c6e1422d7e50c4bb0a8eed2ce1ec55, type: 3}
   rotation: {x: 0, y: 0, z: 0, w: -30}
-  damage: 10
+  damage: 15

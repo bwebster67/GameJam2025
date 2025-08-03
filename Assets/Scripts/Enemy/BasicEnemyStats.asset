@@ -16,3 +16,4 @@ MonoBehaviour:
   moveSpeed: 4
   sprite: {fileID: 7482667652216324306, guid: c31f60c6f523a7f4b9004f4436763dd4, type: 3}
   ExpValue: 1
+  damage: 10
