@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d879c8db11990b74cbf3f4ef589fd825, type: 3}
   m_Name: Snare Action
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 5dd53609be43cdf45ba84c27aacfd99d, type: 3}
-  actionIcon: {fileID: 0}
+  clip: {fileID: 8300000, guid: 03a55ded69a08de4fad7151ea169e296, type: 3}
+  actionIcon: {fileID: 604352067632406023, guid: 5378e7a756935aa42a412503e5757f6c, type: 3}
   snareProjPrefab: {fileID: 1590963909569600714, guid: 112a76d2c736c164780bff3fc40baf6f, type: 3}
   damage: 7.5

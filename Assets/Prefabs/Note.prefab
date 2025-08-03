@@ -167,6 +167,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 6821191820039427498}
   iconImage: {fileID: 8557949150829674534}
+  rectTransform: {fileID: 9006195744676352444}
+  NoteIndex: 0
+  DroppedIcon: {fileID: 0}
+  nullAction: {fileID: 11400000, guid: 1550962c35462244c82f23684aeda6a4, type: 2}
 --- !u!95 &3031759329125471105
 Animator:
   serializedVersion: 7

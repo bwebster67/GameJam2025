@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -31,16 +32,41 @@ public class PlayerMusicController : MonoBehaviour
     public MakeVortexAction MakeVortexAction;
     public MakeFireSpinAction MakeFireSpinAction;
     public NullAction NullAction;
-    public UIManagerScript uiMngr;
+
+    // Events
     public UnityEvent NewBeat;
     public UnityEvent<int> NewNoteAdded;
+    public static event Action LevelUpEvent;
+
     public GameObject NoteBarGO;
     private NoteBar noteBar;
-    
-    public int playerExperience = 0;
+    public GameObject DragDropPrefab;
+    public GameObject canvas;
+
+    // Experience
+    public float playerExperience = 0f;
+    public float levelUpThreshold = 7;
+
+    public UIManagerScript uiMngr;
+    private void OnEnable()
+    {
+        Enemy.OnEnemyDied += HandleEnemyDeath;
+        UIManagerScript.OnPauseEvent += StopMusic;
+        UIManagerScript.OnUnPauseEvent += StartMusic;
+        Note.OnNoteDropped += AddDroppedNode;
+    }
+
+    private void OnDisable()
+    {
+        Enemy.OnEnemyDied -= HandleEnemyDeath;
+        UIManagerScript.OnPauseEvent -= StopMusic;
+        UIManagerScript.OnUnPauseEvent -= StartMusic;
+        Note.OnNoteDropped -= AddDroppedNode;
+    }
+
     private void Awake()
     {
-        if (NewBeat == null)      NewBeat = new UnityEvent();
+        if (NewBeat == null) NewBeat = new UnityEvent();
         if (NewNoteAdded == null) NewNoteAdded = new UnityEvent<int>();
     }
 
@@ -52,22 +78,18 @@ public class PlayerMusicController : MonoBehaviour
 
         // Fill list with NullAction
         while (beatActions.Count < beatsPerCycle)
-            beatActions.Add(NullAction);
+            beatActions.Add(null);
+
+        for (int i = 0; i < beatActions.Count; i++) {
+            AddNonDroppedNode(i, NullAction);
+        }
 
         // temp add red circle actions
         for (int i = 6; i < beatsPerCycle; i += 7)
-            AddNote(MakeCircleAction, i);
+            AddNonDroppedNode(i, MakeCircleAction);
         // temp add snare actions
         for (int i = 4; i < beatsPerCycle; i += 7)
-            AddNote(SnareAction, i);
-        // temp add fireball actions
-        for (int i = 1; i < beatsPerCycle; i += 11)
-            AddNote(MakeFireBallAction, i);
-        for (int i = 0; i < beatsPerCycle; i += 11)
-            AddNote(MakeFireSpinAction, i);
-        //Vortex
-        for (int i = 0; i < beatsPerCycle; i += 1)
-            AddNote(MakeVortexAction, i);
+            AddNonDroppedNode(i, SnareAction);
 
         StartMusic();
     }
@@ -78,14 +100,42 @@ public class PlayerMusicController : MonoBehaviour
 
         StartCoroutine(BeatLoop());
     }
-    public void AddNote(MusicAction action, int index)
+    public void StopMusic()
+    {
+        StopAllCoroutines();
+    }
+    public void AddNote(int index, MusicAction action)
     {
         beatActions[index] = action;
         NewNoteAdded.Invoke(index);
     }
+    public void AddNonDroppedNode(int index, MusicAction action)
+    {
+        GameObject dragDropGO = Instantiate(DragDropPrefab, canvas.transform);
+        dragDropGO.transform.localScale = new Vector3(0.75f, 0.75f, 0.75f);
+        DragDrop dragDrop = dragDropGO.GetComponent<DragDrop>();
+        dragDrop.canvas = canvas.GetComponent<Canvas>();
+        dragDrop.musicAction = action;
+        UnityEngine.UI.Image dragDropPrefabImage = dragDropGO.GetComponent<UnityEngine.UI.Image>();
+        dragDropPrefabImage.sprite = action.actionIcon;
+        RectTransform rect = dragDropGO.GetComponent<RectTransform>();
+        if (rect != null)
+        {
+            rect.anchoredPosition = Vector2.zero; // Center in parent canvas
+        } 
+
+        dragDropGO.transform.SetParent(noteBar.Notes[index].transform);
+        dragDropGO.transform.position = noteBar.Notes[index].transform.position + new Vector3(0, 3, 0);
+        
+        AddNote(index, action);
+    }
+    public void AddDroppedNode(int index, MusicAction action)
+    {
+        AddNote(index, action);
+    }
     public void ChangeToCircleAttack(int index)
     {
-        AddNote(MakeCircleAction, index);
+        AddNote(index, MakeCircleAction);
     }
     private IEnumerator BeatLoop()
     {
@@ -95,7 +145,7 @@ public class PlayerMusicController : MonoBehaviour
             // a) Pick the upcoming action index
             int upcomingIndex = (currentBeatIndex + 1) % beatsPerCycle;
             MusicAction upcoming = beatActions[upcomingIndex];
-            var clip = upcoming.clip;
+            var clip = upcoming?.clip;
             double clipLen = clip?.length ?? 0;
 
             // get and reserve audio source
@@ -118,11 +168,12 @@ public class PlayerMusicController : MonoBehaviour
                 src.SetScheduledEndTime(nextBeatDspTime + clipLen + 0.05);
             }
 
+            yield return new WaitUntil(() => AudioSettings.dspTime >= nextBeatDspTime - 0.1); // makes animation start 0.1s earlier
+            noteBar.BumpNote(upcomingIndex);
             yield return new WaitUntil(() => AudioSettings.dspTime >= nextBeatDspTime);
 
             double drift = AudioSettings.dspTime - nextBeatDspTime;
-            Debug.Log($"Drift on beat {upcomingIndex}: {drift*1000:F1} ms");
-            noteBar.BumpNote(upcomingIndex);
+            Debug.Log($"Drift on beat {upcomingIndex}: {drift * 1000:F1} ms");
             currentBeatIndex = upcomingIndex;
             yield return StartCoroutine(upcoming.Execute(this));
 
@@ -155,7 +206,8 @@ public class PlayerMusicController : MonoBehaviour
         // 2) Otherwise clone a fresh one
         var dup = Instantiate(audioTemplate, transform);
         dup.playOnAwake = false;
-        var newPs = new PooledSource {
+        var newPs = new PooledSource
+        {
             src = dup,
             nextFreeDspTime = nowDsp  // available immediately
         };
@@ -165,6 +217,27 @@ public class PlayerMusicController : MonoBehaviour
     public void changeMusicVolume(float volume) /// 0-1
     {
         audioTemplate.volume = volume;
+    }
+
+    public void HandleEnemyDeath(Enemy enemy)
+    {
+        GainExp(enemy.expValue);
+    }
+
+    public void GainExp(float exp)
+    {
+        playerExperience += exp;
+        if (playerExperience >= levelUpThreshold)
+        {
+            LevelUp();
+            playerExperience -= levelUpThreshold;
+            levelUpThreshold *= 1.3f;
+            levelUpThreshold += 3;
+        }
+    }
+    public void LevelUp()
+    {
+        LevelUpEvent.Invoke();
     }
 
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Cinemachine;
@@ -11,13 +12,14 @@ public class Enemy : MonoBehaviour, IPoolable
     private float maxHealth;
     private float currentHealth;
     private float moveSpeed;
-    
-    
+    public float expValue; 
 
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
     public GameObject DamageNumberPopup;
-     private CinemachineImpulseSource impulseSource;
+    private CinemachineImpulseSource impulseSource;
+    public static event Action<Enemy> OnEnemyDied;
+
 
     public ParticleSystemPool particlePool;
     [SerializeField] private ParticleSystem enemyDeath;
@@ -33,6 +35,7 @@ public class Enemy : MonoBehaviour, IPoolable
 
         maxHealth = currentHealth = enemyStats.maxHealth;
         moveSpeed = enemyStats.moveSpeed;
+        expValue = enemyStats.ExpValue; 
 
         
     }
@@ -52,11 +55,16 @@ public class Enemy : MonoBehaviour, IPoolable
         impulseSource.GenerateImpulse(.12f); // can overload with float force. 1 is normal
         if (currentHealth <= 0)
         {
-           
-
             Die();
-           
         }
+    }
+    public void Die()
+    {
+        impulseSource.GenerateImpulse(.2f);
+        OnEnemyDied?.Invoke(this);
+
+        Destroy(gameObject);
+
     }
 
     void OnCollisionEnter2D(Collision2D collision)
