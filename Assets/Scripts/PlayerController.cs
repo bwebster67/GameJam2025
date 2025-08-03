@@ -1,38 +1,55 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
     public float playerMoveSpeed = 6f;
-    private PlayerInputActions inputActions;
-    private Vector2 moveInput;
 
-    void Awake()
+    private Animator anim;
+    public Rigidbody2D rb;
+    [SerializeField] private Vector2 input;
+    [SerializeField] private Vector2 lastMoveDirection;
+
+
+    [SerializeField] private float moveX;
+    [SerializeField] private float moveY;
+
+    private void Start()
     {
-        inputActions = new PlayerInputActions();
+        anim = GetComponent<Animator>();
     }
 
-    void OnEnable()
+    private void Update()
     {
-        inputActions.Player.Enable();
-        inputActions.Player.Move.performed += OnMove;
-        inputActions.Player.Move.canceled += OnMove;
+        Debug.Log("magnitude: " + input.magnitude);
+        ProcessInputs();
+        Animate();
     }
 
-    void OnDisable()
+    private void FixedUpdate()
     {
-        inputActions.Player.Move.performed -= OnMove;
-        inputActions.Player.Move.canceled -= OnMove;
-        inputActions.Player.Disable();
+        rb.linearVelocity = input.normalized * playerMoveSpeed;
     }
 
-    void OnMove(InputAction.CallbackContext context)
+    void ProcessInputs()
     {
-        moveInput = context.ReadValue<Vector2>();
+         moveX = Input.GetAxisRaw("Horizontal");
+         moveY = Input.GetAxisRaw("Vertical");
+
+        input = new Vector2(moveX, moveY);
+
+        if (input != Vector2.zero)
+        {
+            lastMoveDirection = input;
+        }
     }
 
-    void Update()
+    void Animate()
     {
-        transform.Translate(moveInput * Time.deltaTime * playerMoveSpeed);
+        anim.SetFloat("MoveX", input.x);
+        anim.SetFloat("MoveY", input.y);
+        anim.SetFloat("MoveMagnitude", input.magnitude);
+
+        anim.SetFloat("LastMoveX", lastMoveDirection.x);
+        anim.SetFloat("LastMoveY", lastMoveDirection.y);
     }
 }
